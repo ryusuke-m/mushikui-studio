@@ -3,6 +3,31 @@ from enum import Enum
 from typing import List, Dict, Optional, Any, Tuple
 import json
 
+BASE_DIGIT_CHARS = "0123456789ABCDEF"
+
+def int_to_base_str(n: int, radix: int = 10) -> str:
+    """Converts a non-negative integer to its base-N string representation."""
+    if radix == 10:
+        return str(n)
+    if n == 0:
+        return "0"
+    digits = []
+    while n > 0:
+        digits.append(BASE_DIGIT_CHARS[n % radix])
+        n //= radix
+    return "".join(reversed(digits))
+
+def base_str_to_int(s: str, radix: int = 10) -> int:
+    """Converts a base-N string to an integer."""
+    return int(s, radix)
+
+def val_to_base_char(v: int, radix: int = 10) -> str:
+    """Converts a single digit value to its char representation."""
+    if 0 <= v < len(BASE_DIGIT_CHARS):
+        return BASE_DIGIT_CHARS[v]
+    return str(v)
+
+
 class Operation(str, Enum):
     DIVISION = "division"
     MULTIPLICATION = "multiplication"
@@ -71,8 +96,20 @@ class Puzzle:
     solution_rows: List[PuzzleRow]
     deduction_steps: List[DeductionStep] = field(default_factory=list)
     operands: Dict[str, Any] = field(default_factory=dict)
+    radix: int = 10
     uniqueness_verified: bool = True
     metadata: Dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def base_label(self) -> str:
+        labels = {
+            10: "10進法",
+            2: "2進法 (バイナリ)",
+            8: "8進法 (オクト)",
+            12: "12進法 (デュオデシマル)",
+            16: "16進法 (ヘキサ)",
+        }
+        return labels.get(self.radix, f"{self.radix}進法")
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -82,6 +119,7 @@ class Puzzle:
             "difficulty": self.difficulty.value,
             "hint_count": self.hint_count,
             "summary": self.summary,
+            "radix": self.radix,
             "problem_rows": [asdict(r) for r in self.problem_rows],
             "solution_rows": [asdict(r) for r in self.solution_rows],
             "deduction_steps": [asdict(s) for s in self.deduction_steps],
@@ -99,6 +137,7 @@ class Puzzle:
             difficulty=Difficulty(data["difficulty"]),
             hint_count=data["hint_count"],
             summary=data["summary"],
+            radix=data.get("radix", 10),
             problem_rows=[PuzzleRow(**r) for r in data["problem_rows"]],
             solution_rows=[PuzzleRow(**r) for r in data["solution_rows"]],
             deduction_steps=[DeductionStep(**s) for s in data.get("deduction_steps", [])],

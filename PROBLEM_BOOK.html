@@ -138,6 +138,19 @@
     .badge-multiplication { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
     .badge-addition { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
     .badge-subtraction { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+    .base-badge {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+    .base-2 { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+    .base-8 { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+    .base-12 { background: #f3e8ff; color: #7e22ce; border-color: #e9d5ff; }
+    .base-16 { background: #fee2e2; color: #b91c1c; border-color: #fecaca; }
 
     .difficulty-stars {
       color: #eab308;
@@ -284,11 +297,11 @@
         名作「孤独の7」をはじめ、極めて少ない初期ヒント（0個〜2個）から論理的推論だけで答えが一意に確定する珠玉の筆算覆面算集
       </p>
       <div class="stats-bar">
-        <div class="stat-chip">総問題数: <strong>26</strong> 問</div>
-        <div class="stat-chip">割算: <strong>10</strong> 問</div>
-        <div class="stat-chip">掛算: <strong>5</strong> 問</div>
-        <div class="stat-chip">足算: <strong>5</strong> 問</div>
-        <div class="stat-chip">引算: <strong>6</strong> 問</div>
+        <div class="stat-chip">総問題数: <strong>36</strong> 問</div>
+        <div class="stat-chip">割算: <strong>13</strong> 問</div>
+        <div class="stat-chip">掛算: <strong>9</strong> 問</div>
+        <div class="stat-chip">足算: <strong>6</strong> 問</div>
+        <div class="stat-chip">引算: <strong>8</strong> 問</div>
         <div class="stat-chip">全問 Z3 数学的一意性証明済</div>
       </div>
     </div>
@@ -307,11 +320,12 @@
 
     <div class="puzzle-list">
       
-        <div class="puzzle-card" id="puzzle-DIV-001" data-op="division" data-stars="5">
+        <div class="puzzle-card" id="puzzle-DIV-001" data-op="division" data-stars="5" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-001</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★★★ 伝説級</span>
             </div>
             <div class="header-right">
@@ -405,11 +419,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-002" data-op="division" data-stars="4">
+        <div class="puzzle-card" id="puzzle-DIV-002" data-op="division" data-stars="4" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-002</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★★☆ 上級</span>
             </div>
             <div class="header-right">
@@ -490,11 +505,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-003" data-op="division" data-stars="4">
+        <div class="puzzle-card" id="puzzle-DIV-003" data-op="division" data-stars="4" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-003</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★★☆ 上級</span>
             </div>
             <div class="header-right">
@@ -568,11 +584,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-004" data-op="division" data-stars="4">
+        <div class="puzzle-card" id="puzzle-DIV-004" data-op="division" data-stars="4" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-004</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★★☆ 上級</span>
             </div>
             <div class="header-right">
@@ -653,11 +670,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-005" data-op="division" data-stars="4">
+        <div class="puzzle-card" id="puzzle-DIV-005" data-op="division" data-stars="4" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-005</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★★☆ 上級</span>
             </div>
             <div class="header-right">
@@ -731,11 +749,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-006" data-op="division" data-stars="4">
+        <div class="puzzle-card" id="puzzle-DIV-006" data-op="division" data-stars="4" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-006</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★★☆ 上級</span>
             </div>
             <div class="header-right">
@@ -809,11 +828,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-007" data-op="division" data-stars="3">
+        <div class="puzzle-card" id="puzzle-DIV-007" data-op="division" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-007</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -888,11 +908,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-008" data-op="division" data-stars="2">
+        <div class="puzzle-card" id="puzzle-DIV-008" data-op="division" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-008</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -967,11 +988,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-009" data-op="division" data-stars="3">
+        <div class="puzzle-card" id="puzzle-DIV-009" data-op="division" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-009</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -1045,11 +1067,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-DIV-010" data-op="division" data-stars="3">
+        <div class="puzzle-card" id="puzzle-DIV-010" data-op="division" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">DIV-010</span>
               <span class="op-badge badge-division">割り算 (除算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -1130,11 +1153,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-MUL-001" data-op="multiplication" data-stars="4">
+        <div class="puzzle-card" id="puzzle-MUL-001" data-op="multiplication" data-stars="4" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">MUL-001</span>
               <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              
               <span class="difficulty-stars">★★★★☆ 上級</span>
             </div>
             <div class="header-right">
@@ -1212,11 +1236,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-MUL-002" data-op="multiplication" data-stars="3">
+        <div class="puzzle-card" id="puzzle-MUL-002" data-op="multiplication" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">MUL-002</span>
               <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -1287,11 +1312,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-MUL-003" data-op="multiplication" data-stars="2">
+        <div class="puzzle-card" id="puzzle-MUL-003" data-op="multiplication" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">MUL-003</span>
               <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -1362,11 +1388,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-MUL-004" data-op="multiplication" data-stars="2">
+        <div class="puzzle-card" id="puzzle-MUL-004" data-op="multiplication" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">MUL-004</span>
               <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -1437,11 +1464,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-MUL-005" data-op="multiplication" data-stars="1">
+        <div class="puzzle-card" id="puzzle-MUL-005" data-op="multiplication" data-stars="1" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">MUL-005</span>
               <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              
               <span class="difficulty-stars">★☆☆☆☆ 初級</span>
             </div>
             <div class="header-right">
@@ -1505,11 +1533,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-ADD-001" data-op="addition" data-stars="1">
+        <div class="puzzle-card" id="puzzle-ADD-001" data-op="addition" data-stars="1" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">ADD-001</span>
               <span class="op-badge badge-addition">足し算 (加算)</span>
+              
               <span class="difficulty-stars">★☆☆☆☆ 初級</span>
             </div>
             <div class="header-right">
@@ -1567,11 +1596,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-ADD-002" data-op="addition" data-stars="2">
+        <div class="puzzle-card" id="puzzle-ADD-002" data-op="addition" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">ADD-002</span>
               <span class="op-badge badge-addition">足し算 (加算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -1629,11 +1659,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-ADD-003" data-op="addition" data-stars="3">
+        <div class="puzzle-card" id="puzzle-ADD-003" data-op="addition" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">ADD-003</span>
               <span class="op-badge badge-addition">足し算 (加算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -1698,11 +1729,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-ADD-004" data-op="addition" data-stars="2">
+        <div class="puzzle-card" id="puzzle-ADD-004" data-op="addition" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">ADD-004</span>
               <span class="op-badge badge-addition">足し算 (加算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -1760,11 +1792,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-ADD-005" data-op="addition" data-stars="2">
+        <div class="puzzle-card" id="puzzle-ADD-005" data-op="addition" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">ADD-005</span>
               <span class="op-badge badge-addition">足し算 (加算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -1822,11 +1855,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-SUB-001" data-op="subtraction" data-stars="2">
+        <div class="puzzle-card" id="puzzle-SUB-001" data-op="subtraction" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">SUB-001</span>
               <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -1884,11 +1918,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-SUB-002" data-op="subtraction" data-stars="2">
+        <div class="puzzle-card" id="puzzle-SUB-002" data-op="subtraction" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">SUB-002</span>
               <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -1953,11 +1988,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-SUB-003" data-op="subtraction" data-stars="2">
+        <div class="puzzle-card" id="puzzle-SUB-003" data-op="subtraction" data-stars="2" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">SUB-003</span>
               <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              
               <span class="difficulty-stars">★★☆☆☆ 初中級</span>
             </div>
             <div class="header-right">
@@ -2022,11 +2058,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-SUB-004" data-op="subtraction" data-stars="3">
+        <div class="puzzle-card" id="puzzle-SUB-004" data-op="subtraction" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">SUB-004</span>
               <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -2091,11 +2128,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-SUB-005" data-op="subtraction" data-stars="3">
+        <div class="puzzle-card" id="puzzle-SUB-005" data-op="subtraction" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">SUB-005</span>
               <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -2153,11 +2191,12 @@
         </div>
         
 
-        <div class="puzzle-card" id="puzzle-SUB-006" data-op="subtraction" data-stars="3">
+        <div class="puzzle-card" id="puzzle-SUB-006" data-op="subtraction" data-stars="3" data-radix="10">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">SUB-006</span>
               <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              
               <span class="difficulty-stars">★★★☆☆ 中級</span>
             </div>
             <div class="header-right">
@@ -2205,6 +2244,759 @@
               <span class="step-badge">Step 1</span>
               <strong>差が2桁になる境界条件</strong> (引く数と引かれる数): 引かれる数が1008で、引く数が909のとき、差はちょうど99。
               <div class="step-detail">➜ 確定: <code>1008 - 909 = 99</code> (一意に確定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE8-MUL-001" data-op="multiplication" data-stars="4" data-radix="8">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE8-MUL-001</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="base-badge base-8">8進法 (オクト)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">8進法における『孤独の7』（乗算篇）</h3>
+          <p class="puzzle-desc">8進数（0〜7）の世界で繰り広げられる『孤独の7』。乗数の一の位にたった1つ置かれた最大数字「7」から、全盤面が一意に導かれます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □
+     × □ 7
+  ────────
+       □ □
+     □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE8-MUL-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 1
+     × 7 7
+  ────────
+       7 7
+     7 7  
+  ────────
+   1 0 6 7</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE8-MUL-001')" id="btn-sol-BASE8-MUL-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE8-MUL-001')" id="btn-hint-BASE8-MUL-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE8-MUL-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE8-MUL-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>8進数2桁の被乗数Aの範囲絞り込み</strong> (被乗数A): 乗数の一の位が7で、部分積 A × 7 が8進数2桁（≤ 77₈ = 63）であるため、A ≤ 63/7 = 9 = 11₈。Aは2桁（≥ 10₈ = 8）なので A ∈ {10₈, 11₈}。
+              <div class="step-detail">➜ 確定: <code>A ∈ {10₈, 11₈}</code> (もし A ≥ 12₈ (10) ならば 10 × 7 = 70 = 106₈ (3桁) となり、部分積が2桁であることに反します。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>積の桁数（4桁）による被乗数Aの確定</strong> (被乗数A): 全体の積が8進数4桁（≥ 1000₈ = 512）である。もし A = 10₈ = 8 ならば、乗数Bの最大値 77₈ = 63 を掛けても 8 × 63 = 504 < 512 となり4桁に届かない。
+              <div class="step-detail">➜ 確定: <code>被乗数 A = 11₈ (9)</code> (したがって A は 11₈ (9) しかあり得ません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 3</span>
+              <strong>乗数Bの確定と全盤面の完成</strong> (乗数Bおよび積): 9 × B ≥ 512 より B ≥ 57。乗数の一の位は7なので B = 8×b₁ + 7。b₁ ≤ 6 なら B ≤ 55 < 57 で矛盾。よって b₁ = 7 に確定し、B = 77₈。
+              <div class="step-detail">➜ 確定: <code>11₈ × 77₈ = 1067₈</code> (部分積 11₈ × 7 = 77₈、全体の積 1067₈ となり、すべての空欄が完全に一意確定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE8-DIV-001" data-op="division" data-stars="4" data-radix="8">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE8-DIV-001</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="base-badge base-8">8進法 (オクト)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">8進法における『孤独の7』（除算篇）</h3>
+          <p class="puzzle-desc">8進法の割り算筆算。商の一の位に現れる「7」を手がかりに、各段の部分積と引き算の整合性から全3桁・4桁の数が一意に確定します。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">           □ 7
+    ┌─────────
+□ □ │ □ □ □ □
+         □ □
+        ─────
+           □ □
+           □ □
+          ─────
+             0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE8-DIV-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">           7 7
+    ┌─────────
+1 1 │ 1 0 6 7
+         7 7
+        ─────
+           7 7
+           7 7
+          ─────
+             0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE8-DIV-001')" id="btn-sol-BASE8-DIV-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE8-DIV-001')" id="btn-hint-BASE8-DIV-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE8-DIV-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE8-DIV-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>除数dの絞り込み</strong> (除数d): 商の一の位が7で、除数(2桁) × 7 が2桁（≤ 77₈ = 63）であるため、除数 d ≤ 9 = 11₈。2桁なので d ∈ {10₈, 11₈}。
+              <div class="step-detail">➜ 確定: <code>除数 d ∈ {10₈, 11₈}</code> (d ≥ 12₈ では積が3桁になります。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>被除数と商の完全確定</strong> (除数・商・被除数): 被除数4桁から引く最初の段、および最後の段で割り切れる条件から、除数は 11₈、商は 77₈ に確定。
+              <div class="step-detail">➜ 確定: <code>1067₈ ÷ 11₈ = 77₈</code> (106₈ - 77₈ = 7₈、次桁7を下ろして 77₈ - 77₈ = 0 となり完全に合致します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE16-MUL-001" data-op="multiplication" data-stars="4" data-radix="16">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE16-MUL-001</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="base-badge base-16">16進法 (ヘキサ)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">16進法における『孤独のF』（乗算篇）</h3>
+          <p class="puzzle-desc">コンピュータサイエンスの母国語である16進数（0〜F）の世界。乗数の一の位に唯一提示された最大数字「F」から、4桁の積までの全盤面が導かれます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □
+     × □ F
+  ────────
+       □ □
+     □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE16-MUL-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 1
+     × F F
+  ────────
+       F F
+     F F  
+  ────────
+   1 0 E F</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE16-MUL-001')" id="btn-sol-BASE16-MUL-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE16-MUL-001')" id="btn-hint-BASE16-MUL-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE16-MUL-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE16-MUL-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>16進数2桁の被乗数Aの絞り込み</strong> (被乗数A): 乗数の一の位が F (15) で、部分積 A × 15 が16進数2桁（≤ FF₁₆ = 255）であるため、A ≤ 255/15 = 17 = 11₁₆。2桁なので A ∈ {10₁₆, 11₁₆}。
+              <div class="step-detail">➜ 確定: <code>A ∈ {10₁₆, 11₁₆}</code> (もし A ≥ 12₁₆ (18) なら 18 × 15 = 270 = 10E₁₆ (3桁) となり矛盾します。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>積の桁数（4桁）による被乗数Aの確定</strong> (被乗数A): 全体の積が16進数4桁（≥ 1000₁₆ = 4096）である。もし A = 10₁₆ = 16 ならば、乗数Bの最大値 FF₁₆ = 255 を掛けても 16 × 255 = 4080 < 4096 となり4桁に届かない。
+              <div class="step-detail">➜ 確定: <code>被乗数 A = 11₁₆ (17)</code> (したがって A は 11₁₆ (17) に確定します。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 3</span>
+              <strong>乗数Bと積の確定</strong> (乗数Bおよび積): 17 × B ≥ 4096 より B ≥ 241。乗数の一の位は F (15) なので B = 16×b₁ + 15。b₁ ≤ 14 (E) ならば B ≤ 239 < 241 で矛盾。よって b₁ = 15 = F に確定。
+              <div class="step-detail">➜ 確定: <code>11₁₆ × FF₁₆ = 10EF₁₆</code> (部分積はともに FF₁₆、全体の積は 10EF₁₆ となり一意に確定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE16-DIV-001" data-op="division" data-stars="4" data-radix="16">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE16-DIV-001</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="base-badge base-16">16進法 (ヘキサ)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">16進法における『孤独のF』（除算篇）</h3>
+          <p class="puzzle-desc">16進法の筆算割り算。商の一の位の「F」のみを手がかりに、除数11₁₆と被除数10EF₁₆が完全に一意に定まります。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">           □ F
+    ┌─────────
+□ □ │ □ □ □ □
+         □ □
+        ─────
+           □ □
+           □ □
+          ─────
+             0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE16-DIV-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">           F F
+    ┌─────────
+1 1 │ 1 0 E F
+         F F
+        ─────
+           F F
+           F F
+          ─────
+             0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE16-DIV-001')" id="btn-sol-BASE16-DIV-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE16-DIV-001')" id="btn-hint-BASE16-DIV-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE16-DIV-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE16-DIV-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>商の一の位Fによる除数の絞り込み</strong> (除数d): 商の一の位がFで、除数(2桁) × F が2桁（≤ FF₁₆ = 255）であるため、d ≤ 17 = 11₁₆。2桁なので d ∈ {10₁₆, 11₁₆}。
+              <div class="step-detail">➜ 確定: <code>除数 d ∈ {10₁₆, 11₁₆}</code> (d ≥ 12₁₆ では積が3桁になります。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>被除数の桁数と割り切れ条件による確定</strong> (全盤面): 被除数が4桁で、最初の部分積が2桁、引き算の残りに一の位を下ろしてF倍で割り切れる解は 10EF₁₆ ÷ 11₁₆ = FF₁₆ のみ。
+              <div class="step-detail">➜ 確定: <code>10EF₁₆ ÷ 11₁₆ = FF₁₆</code> (10E₁₆ - FF₁₆ = F₁₆、末尾Fを下ろして FF₁₆ - FF₁₆ = 0 と合致します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE12-MUL-001" data-op="multiplication" data-stars="4" data-radix="12">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE12-MUL-001</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="base-badge base-12">12進法 (デュオデシマル)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">12進法における『孤独のB』（乗算篇）</h3>
+          <p class="puzzle-desc">優れた高度合成数12を基数とする12進法（0〜B、B=11）。乗数の一の位の「B」1つから、すべてのマスが論理的に埋まります。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □
+     × □ B
+  ────────
+       □ □
+     □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE12-MUL-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 1
+     × B B
+  ────────
+       B B
+     B B  
+  ────────
+   1 0 A B</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE12-MUL-001')" id="btn-sol-BASE12-MUL-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE12-MUL-001')" id="btn-hint-BASE12-MUL-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE12-MUL-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE12-MUL-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>被乗数Aの範囲絞り込み</strong> (被乗数A): 12進法で乗数の一の位が最大数字B(11)であり、部分積 A × B が2桁（≤ BB₁₂ = 143）であるため A ≤ 143/11 = 13 = 11₁₂。よって A ∈ {10₁₂, 11₁₂}。
+              <div class="step-detail">➜ 確定: <code>A ∈ {10₁₂, 11₁₂}</code> (A ≥ 12₁₂ では部分積が3桁になります。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>4桁の積による解の確定</strong> (被乗数・乗数・積): 積が4桁（≥ 1000₁₂ = 1728）になるためには、A = 10₁₂ = 12 では 12 × 143 = 1716 < 1728 となり不足。したがって A = 11₁₂ (13)、B = BB₁₂ (143)。
+              <div class="step-detail">➜ 確定: <code>11₁₂ × BB₁₂ = 10AB₁₂</code> (13 × 143 = 1859 = 10AB₁₂ となり一意に確定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE2-MUL-001" data-op="multiplication" data-stars="3" data-radix="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE2-MUL-001</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="base-badge base-2">2進法 (バイナリ)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>0</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">2進法の極限『0文字覆面算』（完全空欄乗算）</h3>
+          <p class="puzzle-desc">2進法（0と1の世界）では、盤面に数字ヒントが1つも書かれていなくても（完全な空欄□のみ）、筆算の形状と桁数制約だけで答えが一意に決定します！</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □
+     × □ □
+  ────────
+       □ □
+     □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE2-MUL-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 1
+     × 1 1
+  ────────
+       1 1
+     1 1  
+  ────────
+   1 0 0 1</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE2-MUL-001')" id="btn-sol-BASE2-MUL-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE2-MUL-001')" id="btn-hint-BASE2-MUL-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE2-MUL-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE2-MUL-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>2進数の基本性質と乗数の決定</strong> (乗数B): 2進数では各桁は0か1のみで、最上位桁は1。乗数B(2桁)の各桁との積（部分積）が2段とも2桁で存在するため、乗数の各桁はどちらも1。
+              <div class="step-detail">➜ 確定: <code>乗数 B = 11₂ (3)</code> (もし乗数の一の位が0なら、第1部分積は0（または行が存在しない）となります。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>積の桁数（4桁）による被乗数の決定</strong> (被乗数Aおよび積): 2桁の2進数Aは 10₂ (2) または 11₂ (3)。もし A = 10₂ なら積は 2 × 3 = 6 = 110₂ (3桁)。積は4桁（1000₂以上）なので A = 11₂ (3) に確定！
+              <div class="step-detail">➜ 確定: <code>11₂ × 11₂ = 1001₂</code> (ヒント文字が0個でも、筆算の幾何学的レイアウトだけで 3 × 3 = 9 が唯一の解となります。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE2-ADD-001" data-op="addition" data-stars="2" data-radix="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE2-ADD-001</span>
+              <span class="op-badge badge-addition">足し算 (加算)</span>
+              <span class="base-badge base-2">2進法 (バイナリ)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>0</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">2進法の極限『0文字加算』（繰り上がり連鎖）</h3>
+          <p class="puzzle-desc">3桁＋1桁＝4桁という筆算の桁数配置だけで、2進法の繰り上がり連鎖により 111₂ + 1₂ = 1000₂ が確定する究極のヒント0個問題。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □ □
+         + □
+  ──────────
+     □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE2-ADD-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 1 1
+         + 1
+  ──────────
+     1 0 0 0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE2-ADD-001')" id="btn-sol-BASE2-ADD-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE2-ADD-001')" id="btn-hint-BASE2-ADD-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE2-ADD-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE2-ADD-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>3桁最大値と1桁最大値の加算制約</strong> (全オペランド): 第1項は3桁（最大 111₂ = 7）、第2項は1桁（最大 1₂ = 1）。和は4桁（最小 1000₂ = 8）。7 + 1 = 8 以外の組み合わせは存在しない！
+              <div class="step-detail">➜ 確定: <code>111₂ + 1₂ = 1000₂</code> (盤面にヒントが1文字もなくても、桁数の関係から解が一意に確定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE2-SUB-001" data-op="subtraction" data-stars="2" data-radix="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE2-SUB-001</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="base-badge base-2">2進法 (バイナリ)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>0</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">2進法の極限『0文字減算』（桁借り連鎖）</h3>
+          <p class="puzzle-desc">4桁－3桁＝1桁という筆算の輪郭のみから、8－7＝1（1000₂－111₂＝1₂）が唯一解として導かれるヒント0個の引き算。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □ □
+     - □ □ □
+  ──────────
+           □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE2-SUB-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 0 0
+     - 1 1 1
+  ──────────
+           1</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE2-SUB-001')" id="btn-sol-BASE2-SUB-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE2-SUB-001')" id="btn-hint-BASE2-SUB-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE2-SUB-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE2-SUB-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>引かれる数・引く数・差の境界解析</strong> (全オペランド): 引かれる数Aは4桁（8〜15）、引く数Bは3桁（4〜7）、差は1桁（1）。A - B = 1 より A = B + 1 ≤ 7 + 1 = 8。よって A=8, B=7 しかない。
+              <div class="step-detail">➜ 確定: <code>1000₂ - 111₂ = 1₂</code> (引き算の境界値解析により、全桁が一意に決定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE2-DIV-001" data-op="division" data-stars="4" data-radix="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE2-DIV-001</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="base-badge base-2">2進法 (バイナリ)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>0</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">2進法の『0文字除算』（完全空欄長除法）</h3>
+          <p class="puzzle-desc">数字のヒントが全くない（すべて□）2進法の筆算割り算。3段にわたる引き算の段数と桁数の構造から、21÷3＝7（10101₂÷11₂＝111₂）が一意に確定します。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">           □ □ □
+    ┌───────────
+□ □ │ □ □ □ □ □
+         □ □
+        ─────
+         □ □ □
+           □ □
+          ─────
+             □ □
+             □ □
+            ─────
+               0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE2-DIV-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">           1 1 1
+    ┌───────────
+1 1 │ 1 0 1 0 1
+         1 1
+        ─────
+         1 0 0
+           1 1
+          ─────
+             1 1
+             1 1
+            ─────
+               0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE2-DIV-001')" id="btn-sol-BASE2-DIV-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE2-DIV-001')" id="btn-hint-BASE2-DIV-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE2-DIV-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE2-DIV-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>商の桁数と各段の商の決定</strong> (商q): 商は3桁。各桁で割り算が行われて部分積が存在するため、商の各桁はすべて1（q = 111₂ = 7）。
+              <div class="step-detail">➜ 確定: <code>商 q = 111₂ (7)</code> (2進法では商の桁が0なら引き算を行わず次の桁を下ろすため、3段引き算があるということは商の3桁すべてが1です。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>除数と被除数の確定</strong> (除数dおよび被除数D): 除数は2桁（10₂ または 11₂）。各段で引かれる数（除数×1）は2桁。5桁の被除数を3桁の商7で割って割り切れる2桁の数は d = 11₂ = 3 のみ（3×7 = 21 = 10101₂）。
+              <div class="step-detail">➜ 確定: <code>10101₂ ÷ 11₂ = 111₂</code> (部分積がすべて 11₂ となり、引き算の余り推移（101₂-11₂=10₂ → 100₂-11₂=1₂ → 11₂-11₂=0）が完全に合致します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-BASE16-SUB-001" data-op="subtraction" data-stars="3" data-radix="16">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">BASE16-SUB-001</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="base-badge base-16">16進法 (ヘキサ)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">16進法における『孤独の1』（減算篇）</h3>
+          <p class="puzzle-desc">16進数で4桁－3桁＝1桁であり、差が「1」という唯一の手がかりから、4096－4095＝1（1000₁₆－FFF₁₆＝1₁₆）が一意に導かれます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □ □
+     - □ □ □
+  ──────────
+           1</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-BASE16-SUB-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 0 0
+     - F F F
+  ──────────
+           1</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('BASE16-SUB-001')" id="btn-sol-BASE16-SUB-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('BASE16-SUB-001')" id="btn-hint-BASE16-SUB-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('BASE16-SUB-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-BASE16-SUB-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>16進数の桁境界と差の1</strong> (全オペランド): 引く数Bは16進数3桁（最大 FFF₁₆ = 4095）。引かれる数Aは4桁（最小 1000₁₆ = 4096）。差が1であるため、A = B + 1 ≤ 4095 + 1 = 4096。
+              <div class="step-detail">➜ 確定: <code>1000₁₆ - FFF₁₆ = 1₁₆</code> (16進数の桁上がりの境界によって、たった1つのヒント「1」から全桁が確定します。)</div>
             </div>
             
             </div>

@@ -4,7 +4,7 @@ Constructs multiplication puzzles with minimal clues, formatted rows, and verifi
 """
 
 from typing import List, Dict, Optional, Tuple, Any
-from ..models import Puzzle, PuzzleRow, Operation, Difficulty, DeductionStep
+from ..models import Puzzle, PuzzleRow, Operation, Difficulty, DeductionStep, int_to_base_str, val_to_base_char
 
 class MultiplicationGenerator:
     """Generates multiplication cryptarithm puzzles."""
@@ -20,20 +20,21 @@ class MultiplicationGenerator:
         clues: Dict[str, Dict[int, int]],
         summary: str = "",
         deduction_steps: Optional[List[DeductionStep]] = None,
-        source: str = ""
+        source: str = "",
+        radix: int = 10
     ) -> Puzzle:
-        A_s = str(A)
-        B_s = str(B)
+        A_s = int_to_base_str(A, radix)
+        B_s = int_to_base_str(B, radix)
         tot = A * B
-        tot_s = str(tot)
-        b_digits = [int(c) for c in reversed(B_s)] # 0 is LSD
+        tot_s = int_to_base_str(tot, radix)
+        b_digits = [int(c, radix) for c in reversed(B_s)] # 0 is LSD
         prods = [A * b for b in b_digits]
-        product_lens = [len(str(p)) for p in prods]
+        product_lens = [len(int_to_base_str(p, radix)) for p in prods]
 
         hint_count = sum(len(sub) for sub in clues.values())
 
-        problem_rows = cls._build_rows(A, B, prods, tot, clues, is_solution=False)
-        solution_rows = cls._build_rows(A, B, prods, tot, clues, is_solution=True)
+        problem_rows = cls._build_rows(A, B, prods, tot, clues, is_solution=False, radix=radix)
+        solution_rows = cls._build_rows(A, B, prods, tot, clues, is_solution=True, radix=radix)
 
         return Puzzle(
             id=puzzle_id,
@@ -45,7 +46,8 @@ class MultiplicationGenerator:
             problem_rows=problem_rows,
             solution_rows=solution_rows,
             deduction_steps=deduction_steps or [],
-            operands={'A': A, 'B': B, 'tot': tot},
+            operands={'A': A, 'B': B, 'tot': tot, 'A_str': A_s, 'B_str': B_s, 'tot_str': tot_s},
+            radix=radix,
             uniqueness_verified=True,
             metadata={
                 'A_len': len(A_s),
@@ -53,7 +55,8 @@ class MultiplicationGenerator:
                 'product_lens': product_lens,
                 'tot_len': len(tot_s),
                 'clues': clues,
-                'source': source
+                'source': source,
+                'radix': radix
             }
         )
 
@@ -65,15 +68,16 @@ class MultiplicationGenerator:
         prods: List[int],
         tot: int,
         clues: Dict[str, Dict[int, int]],
-        is_solution: bool
+        is_solution: bool,
+        radix: int = 10
     ) -> List[PuzzleRow]:
-        A_s = str(A)
-        B_s = str(B)
-        tot_s = str(tot)
+        A_s = int_to_base_str(A, radix)
+        B_s = int_to_base_str(B, radix)
+        tot_s = int_to_base_str(tot, radix)
 
         max_len = max(len(A_s), len(B_s) + 2, len(tot_s))
         for i, p in enumerate(prods):
-            max_len = max(max_len, len(str(p)) + i)
+            max_len = max(max_len, len(int_to_base_str(p, radix)) + i)
 
         width = max_len * 2 + 2
         rows = []
@@ -99,7 +103,7 @@ class MultiplicationGenerator:
 
         # Partial products
         for i, p in enumerate(prods):
-            p_s = str(p)
+            p_s = int_to_base_str(p, radix)
             p_part = []
             key = f'P_{i}'
             for pi, pc in enumerate(p_s):

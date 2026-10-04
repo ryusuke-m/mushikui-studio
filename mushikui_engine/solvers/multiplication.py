@@ -16,7 +16,8 @@ class MultiplicationSolver:
         product_lens: List[int], # Expected length of partial products P_0..P_{B_len-1}
         tot_len: int,           # Expected length of total sum
         clues: Dict[str, Dict[int, int]], # 'A', 'B', 'P_0'..'P_{B_len-1}', 'tot' -> {pos: digit}
-        max_solutions: int = 2
+        max_solutions: int = 2,
+        radix: int = 10
     ) -> List[Dict[str, Any]]:
         solver = z3.Solver()
 
@@ -24,22 +25,22 @@ class MultiplicationSolver:
         A_digits = [z3.Int(f'A_d_{j}') for j in range(A_len)]
         for j, d in enumerate(A_digits):
             if j == 0:
-                solver.add(d >= 1, d <= 9)
+                solver.add(d >= 1, d <= radix - 1)
             else:
-                solver.add(d >= 0, d <= 9)
+                solver.add(d >= 0, d <= radix - 1)
         A = z3.Int('A')
-        solver.add(A == sum(A_digits[j] * (10**(A_len - 1 - j)) for j in range(A_len)))
+        solver.add(A == sum(A_digits[j] * (radix**(A_len - 1 - j)) for j in range(A_len)))
 
         # Digits of B: B = b_{B_len-1}..b_0
         b_digits = [z3.Int(f'b_{i}') for i in range(B_len)]
         for i, b in enumerate(b_digits):
             if i == B_len - 1: # leading digit of B
-                solver.add(b >= 1, b <= 9)
+                solver.add(b >= 1, b <= radix - 1)
             else:
-                solver.add(b >= 0, b <= 9)
+                solver.add(b >= 0, b <= radix - 1)
 
         B = z3.Int('B')
-        solver.add(B == sum(b_digits[i] * (10**i) for i in range(B_len)))
+        solver.add(B == sum(b_digits[i] * (radix**i) for i in range(B_len)))
 
         # Partial products: P_i = A * b_i
         products = []
@@ -48,18 +49,18 @@ class MultiplicationSolver:
             solver.add(p == A * b_digits[i])
             expected_p_len = product_lens[i]
             if expected_p_len > 0:
-                solver.add(p >= 10**(expected_p_len - 1), p < 10**expected_p_len)
+                solver.add(p >= radix**(expected_p_len - 1), p < radix**expected_p_len)
             products.append(p)
 
         # Total sum digits
         tot_digits = [z3.Int(f'tot_d_{j}') for j in range(tot_len)]
         for j, d in enumerate(tot_digits):
             if j == 0:
-                solver.add(d >= 1, d <= 9)
+                solver.add(d >= 1, d <= radix - 1)
             else:
-                solver.add(d >= 0, d <= 9)
+                solver.add(d >= 0, d <= radix - 1)
         tot = z3.Int('tot')
-        solver.add(tot == sum(tot_digits[j] * (10**(tot_len - 1 - j)) for j in range(tot_len)))
+        solver.add(tot == sum(tot_digits[j] * (radix**(tot_len - 1 - j)) for j in range(tot_len)))
         solver.add(tot == A * B)
 
         # Apply clues on A
@@ -78,8 +79,8 @@ class MultiplicationSolver:
             if key in clues:
                 p_len = product_lens[i]
                 for pos, val in clues[key].items():
-                    div_factor = 10**(p_len - 1 - pos)
-                    solver.add((products[i] / div_factor) % 10 == val)
+                    div_factor = radix**(p_len - 1 - pos)
+                    solver.add((products[i] / div_factor) % radix == val)
 
         # Apply clues on total sum
         if 'tot' in clues:
@@ -100,7 +101,8 @@ class MultiplicationSolver:
                 'B': B_val,
                 'b_digits': b_vals,
                 'products': p_vals,
-                'tot': tot_val
+                'tot': tot_val,
+                'radix': radix
             }
             solutions.append(sol)
 

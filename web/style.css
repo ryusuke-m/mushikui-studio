@@ -312,6 +312,20 @@ body {
 .op-addition { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
 .op-subtraction { background: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; }
 
+.base-tag {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.base-tag-2 { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.base-tag-8 { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+.base-tag-12 { background: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+.base-tag-16 { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
 .diff-tag {
   color: var(--accent-gold);
   font-weight: 700;

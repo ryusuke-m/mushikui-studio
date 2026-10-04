@@ -15,18 +15,19 @@ class SubtractionSolver:
         B_len: int,                      # Length of subtrahend
         diff_len: int,                   # Length of difference
         clues: Dict[str, Dict[int, int]], # 'A', 'B', 'diff' -> {pos: digit}
-        max_solutions: int = 2
+        max_solutions: int = 2,
+        radix: int = 10
     ) -> List[Dict[str, Any]]:
         solver = z3.Solver()
 
         A = z3.Int('A')
-        solver.add(A >= 10**(A_len - 1), A < 10**A_len)
+        solver.add(A >= radix**(A_len - 1), A < radix**A_len)
 
         B = z3.Int('B')
-        solver.add(B >= 10**(B_len - 1), B < 10**B_len)
+        solver.add(B >= radix**(B_len - 1), B < radix**B_len)
 
         diff = z3.Int('diff')
-        solver.add(diff >= 10**(diff_len - 1), diff < 10**diff_len)
+        solver.add(diff >= radix**(diff_len - 1), diff < radix**diff_len)
 
         # A - B = diff
         solver.add(A - B == diff)
@@ -35,28 +36,28 @@ class SubtractionSolver:
         A_digits = [z3.Int(f'A_d_{j}') for j in range(A_len)]
         for j, d in enumerate(A_digits):
             if j == 0:
-                solver.add(d >= 1, d <= 9)
+                solver.add(d >= 1, d <= radix - 1)
             else:
-                solver.add(d >= 0, d <= 9)
-        solver.add(A == sum(A_digits[j] * (10**(A_len - 1 - j)) for j in range(A_len)))
+                solver.add(d >= 0, d <= radix - 1)
+        solver.add(A == sum(A_digits[j] * (radix**(A_len - 1 - j)) for j in range(A_len)))
 
         # Digits of B
         B_digits = [z3.Int(f'B_d_{j}') for j in range(B_len)]
         for j, d in enumerate(B_digits):
             if j == 0:
-                solver.add(d >= 1, d <= 9)
+                solver.add(d >= 1, d <= radix - 1)
             else:
-                solver.add(d >= 0, d <= 9)
-        solver.add(B == sum(B_digits[j] * (10**(B_len - 1 - j)) for j in range(B_len)))
+                solver.add(d >= 0, d <= radix - 1)
+        solver.add(B == sum(B_digits[j] * (radix**(B_len - 1 - j)) for j in range(B_len)))
 
         # Digits of diff
         diff_digits = [z3.Int(f'diff_d_{j}') for j in range(diff_len)]
         for j, d in enumerate(diff_digits):
             if j == 0:
-                solver.add(d >= 1, d <= 9)
+                solver.add(d >= 1, d <= radix - 1)
             else:
-                solver.add(d >= 0, d <= 9)
-        solver.add(diff == sum(diff_digits[j] * (10**(diff_len - 1 - j)) for j in range(diff_len)))
+                solver.add(d >= 0, d <= radix - 1)
+        solver.add(diff == sum(diff_digits[j] * (radix**(diff_len - 1 - j)) for j in range(diff_len)))
 
         # Apply clues
         if 'A' in clues:
@@ -84,7 +85,8 @@ class SubtractionSolver:
                 'diff': diff_val,
                 'A_digits': [m[d].as_long() for d in A_digits],
                 'B_digits': [m[d].as_long() for d in B_digits],
-                'diff_digits': [m[d].as_long() for d in diff_digits]
+                'diff_digits': [m[d].as_long() for d in diff_digits],
+                'radix': radix
             }
             solutions.append(sol)
 

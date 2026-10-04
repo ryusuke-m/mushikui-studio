@@ -35,6 +35,10 @@ class TextRenderer:
         md.append(f"- **種別**: {puzzle.operation.display_name}")
         md.append(f"- **難易度**: {puzzle.difficulty.value}")
         md.append(f"- **初期ヒント数**: `{puzzle.hint_count}` 個")
+        if puzzle.radix != 10:
+            from ..models import val_to_base_char
+            max_digit = val_to_base_char(puzzle.radix - 1, puzzle.radix)
+            md.append(f"- **基数 (進法)**: **{puzzle.base_label}**（使用可能数字: 0〜{max_digit}）")
         if puzzle.summary:
             md.append(f"- **特徴**: {puzzle.summary}")
         md.append("")

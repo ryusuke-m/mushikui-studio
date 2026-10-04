@@ -6,6 +6,7 @@
 let currentOpFilter = 'all';
 let currentHintFilter = 'all';
 let currentDiffFilter = 'all';
+let currentBaseFilter = 'all';
 let activePlayerPuzzle = null;
 
 // Initialize on DOM load
@@ -54,6 +55,13 @@ function setDiffFilter(diff, el) {
   renderCatalog();
 }
 
+function setBaseFilter(base, el) {
+  document.querySelectorAll('#filter-base .f-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  currentBaseFilter = base;
+  renderCatalog();
+}
+
 // Render Catalog Cards
 function renderCatalog() {
   const container = document.getElementById('catalog-container');
@@ -62,7 +70,11 @@ function renderCatalog() {
   const filtered = PUZZLES_DATA.filter(p => {
     // Op filter
     if (currentOpFilter !== 'all' && p.operation !== currentOpFilter) return false;
+    // Base filter
+    const radixStr = (p.radix || 10).toString();
+    if (currentBaseFilter !== 'all' && radixStr !== currentBaseFilter) return false;
     // Hint filter
+    if (currentHintFilter === '0' && p.hint_count !== 0) return false;
     if (currentHintFilter === '1' && p.hint_count !== 1) return false;
     if (currentHintFilter === '2' && p.hint_count !== 2) return false;
     // Diff filter
@@ -97,6 +109,10 @@ function createPuzzleCardHTML(p) {
     subtraction: '引算'
   }[p.operation] || p.operation;
 
+  const baseBadge = (p.radix && p.radix !== 10) 
+    ? `<span class="base-tag base-tag-${p.radix}">${p.radix}進法</span>`
+    : '';
+
   const stepsHTML = p.deduction_steps.map(s => `
     <div class="step-card">
       <span class="step-num">Step ${s.step_num}</span>
@@ -113,6 +129,7 @@ function createPuzzleCardHTML(p) {
           <div class="p-card-id-block">
             <span class="badge-id">${p.id}</span>
             <span class="op-tag ${opClass}">${opName}</span>
+            ${baseBadge}
             <span class="diff-tag">${p.difficulty}</span>
           </div>
           <span class="hint-tag">初期ヒント: ${p.hint_count}個</span>
@@ -196,13 +213,16 @@ function initPlayerList() {
   const listContainer = document.getElementById('player-puzzle-list');
   if (!listContainer) return;
 
-  listContainer.innerHTML = PUZZLES_DATA.map(p => `
-    <div class="p-select-item" id="item-${p.id}" onclick="loadPlayerPuzzle('${p.id}')">
-      <div class="s-id">${p.id}</div>
-      <div class="s-title">${p.title}</div>
-      <div class="s-meta">${p.difficulty} • ヒント${p.hint_count}個</div>
-    </div>
-  `).join('');
+  listContainer.innerHTML = PUZZLES_DATA.map(p => {
+    const baseStr = (p.radix && p.radix !== 10) ? ` • ${p.radix}進法` : '';
+    return `
+      <div class="p-select-item" id="item-${p.id}" onclick="loadPlayerPuzzle('${p.id}')">
+        <div class="s-id">${p.id}</div>
+        <div class="s-title">${p.title}</div>
+        <div class="s-meta">${p.difficulty} • ヒント${p.hint_count}個${baseStr}</div>
+      </div>
+    `;
+  }).join('');
 }
 
 function loadPlayerPuzzle(id) {
@@ -231,6 +251,17 @@ function loadPlayerPuzzle(id) {
     subtraction: '引算'
   }[p.operation] || p.operation;
   opTag.className = 'op-tag op-' + p.operation;
+
+  const baseTag = document.getElementById('player-p-base');
+  if (baseTag) {
+    if (p.radix && p.radix !== 10) {
+      baseTag.style.display = 'inline-block';
+      baseTag.innerText = `${p.radix}進法`;
+      baseTag.className = 'base-tag base-tag-' + p.radix;
+    } else {
+      baseTag.style.display = 'none';
+    }
+  }
 
   // Reset feedback & hints
   hidePlayerFeedback();
@@ -273,15 +304,19 @@ function buildInteractiveGrid(p) {
         input.type = 'text';
         input.maxLength = 1;
         input.className = 'mushikui-input';
-        input.dataset.answer = sChar.trim();
+        input.dataset.answer = sChar.trim().toUpperCase();
         input.dataset.index = inputIndex++;
 
+        const radix = p.radix || 10;
+        const validChars = "0123456789ABCDEF".slice(0, radix);
+
         input.addEventListener('input', (e) => {
-          const val = e.target.value;
-          if (val && !/^[0-9]$/.test(val)) {
+          let val = e.target.value.toUpperCase();
+          if (val && !validChars.includes(val)) {
             e.target.value = '';
             return;
           }
+          e.target.value = val;
           e.target.classList.remove('correct', 'incorrect');
           if (val.length === 1) {
             // Auto focus next input
@@ -308,7 +343,7 @@ function buildInteractiveGrid(p) {
       } else if (['┌', '│', ')'].includes(pChar)) {
         cell.classList.add('static-char');
         cell.textContent = pChar;
-      } else if (/[0-9]/.test(pChar)) {
+      } else if (/[0-9A-Fa-f]/.test(pChar)) {
         // Clue digit!
         cell.classList.add('clue-digit');
         cell.textContent = pChar;
@@ -341,8 +376,8 @@ function checkPlayerSolution() {
   let wrongCount = 0;
 
   inputs.forEach(input => {
-    const val = input.value.trim();
-    const ans = input.dataset.answer;
+    const val = input.value.trim().toUpperCase();
+    const ans = (input.dataset.answer || '').toUpperCase();
 
     if (!val) {
       allFilled = false;

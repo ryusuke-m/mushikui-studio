@@ -4,7 +4,7 @@ Constructs division puzzles with minimal clues, formatted rows, and verification
 """
 
 from typing import List, Dict, Optional, Tuple, Any
-from ..models import Puzzle, PuzzleRow, Operation, Difficulty, DeductionStep
+from ..models import Puzzle, PuzzleRow, Operation, Difficulty, DeductionStep, int_to_base_str, val_to_base_char
 
 class DivisionGenerator:
     """Generates division cryptarithm puzzles."""
@@ -21,12 +21,13 @@ class DivisionGenerator:
         clues: Dict[str, Dict[int, int]],
         summary: str = "",
         deduction_steps: Optional[List[DeductionStep]] = None,
-        source: str = ""
+        source: str = "",
+        radix: int = 10
     ) -> Puzzle:
-        d_s = str(d)
-        q_s = str(q)
-        D_s = str(D)
-        D_digits = [int(c) for c in D_s]
+        d_s = int_to_base_str(d, radix)
+        q_s = int_to_base_str(q, radix)
+        D_s = int_to_base_str(D, radix)
+        D_digits = [int(c, radix) for c in D_s]
 
         # Calculate steps
         steps = []
@@ -36,15 +37,15 @@ class DivisionGenerator:
         zero_positions = []
 
         for qi, q_char in enumerate(q_s):
-            q_dig = int(q_char)
+            q_dig = int(q_char, radix)
             if q_dig == 0:
                 zero_positions.append(qi)
                 zero_cols[qi] = idx
-                curr_val = curr_val * 10 + D_digits[idx]
+                curr_val = curr_val * radix + D_digits[idx]
                 idx += 1
                 continue
             while curr_val < d and idx < len(D_digits):
-                curr_val = curr_val * 10 + D_digits[idx]
+                curr_val = curr_val * radix + D_digits[idx]
                 idx += 1
             prod = d * q_dig
             rem = curr_val - prod
@@ -66,8 +67,8 @@ class DivisionGenerator:
             steps_info.append({
                 'q_idx': s['q_idx'],
                 'bring_down_count': bring_count,
-                'sub_dividend_len': len(str(s['curr_val'])),
-                'product_len': len(str(s['prod'])),
+                'sub_dividend_len': len(int_to_base_str(s['curr_val'], radix)),
+                'product_len': len(int_to_base_str(s['prod'], radix)),
                 'is_last': (si == len(steps) - 1)
             })
             prev_end_col = s['end_col']
@@ -75,8 +76,8 @@ class DivisionGenerator:
         hint_count = sum(len(sub) for sub in clues.values())
 
         # Build problem and solution rows
-        problem_rows = cls._build_rows(d, q, D, steps, zero_cols, clues, is_solution=False)
-        solution_rows = cls._build_rows(d, q, D, steps, zero_cols, clues, is_solution=True)
+        problem_rows = cls._build_rows(d, q, D, steps, zero_cols, clues, is_solution=False, radix=radix)
+        solution_rows = cls._build_rows(d, q, D, steps, zero_cols, clues, is_solution=True, radix=radix)
 
         puzzle = Puzzle(
             id=puzzle_id,
@@ -88,7 +89,8 @@ class DivisionGenerator:
             problem_rows=problem_rows,
             solution_rows=solution_rows,
             deduction_steps=deduction_steps or [],
-            operands={'d': d, 'q': q, 'D': D},
+            operands={'d': d, 'q': q, 'D': D, 'd_str': d_s, 'q_str': q_s, 'D_str': D_s},
+            radix=radix,
             uniqueness_verified=True,
             metadata={
                 'd_len': len(d_s),
@@ -96,7 +98,8 @@ class DivisionGenerator:
                 'D_len': len(D_s),
                 'steps_info': steps_info,
                 'clues': clues,
-                'source': source
+                'source': source,
+                'radix': radix
             }
         )
         return puzzle
@@ -110,11 +113,12 @@ class DivisionGenerator:
         steps: List[Dict[str, Any]],
         zero_cols: Dict[int, int],
         clues: Dict[str, Dict[int, int]],
-        is_solution: bool
+        is_solution: bool,
+        radix: int = 10
     ) -> List[PuzzleRow]:
-        d_s = str(d)
-        q_s = str(q)
-        D_s = str(D)
+        d_s = int_to_base_str(d, radix)
+        q_s = int_to_base_str(q, radix)
+        D_s = int_to_base_str(D, radix)
 
         col_offset = len(d_s) * 2 + 3
         total_cols = col_offset + len(D_s) * 2
@@ -126,7 +130,7 @@ class DivisionGenerator:
         for s in steps:
             qi = s['q_idx']
             col = col_offset + s['end_col'] * 2
-            char = str(s['q_dig']) if (is_solution or ('q' in clues and clues['q'].get(qi) is not None)) else '□'
+            char = val_to_base_char(s['q_dig'], radix) if (is_solution or ('q' in clues and clues['q'].get(qi) is not None)) else '□'
             q_line[col] = char
         for qi, col_idx in zero_cols.items():
             col = col_offset + col_idx * 2
@@ -153,7 +157,7 @@ class DivisionGenerator:
 
         # 4. Steps
         for si, s in enumerate(steps):
-            prod_s = str(s['prod'])
+            prod_s = int_to_base_str(s['prod'], radix)
             end_col = s['end_col']
             start_col = end_col - len(prod_s) + 1
 
@@ -171,7 +175,7 @@ class DivisionGenerator:
 
             if si < len(steps) - 1:
                 next_step = steps[si+1]
-                m_s = str(next_step['curr_val'])
+                m_s = int_to_base_str(next_step['curr_val'], radix)
                 m_end_col = next_step['end_col']
                 m_start_col = m_end_col - len(m_s) + 1
                 m_line = [' '] * total_cols

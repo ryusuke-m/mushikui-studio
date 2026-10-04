@@ -15,7 +15,8 @@ class AdditionSolver:
         sum_len: int,            # Length of sum
         clues: Dict[str, Dict[int, int]], # 'op_0', 'op_1'..., 'sum' -> {pos: digit}
         enforce_order: bool = False, # If True and operands have same length, enforce op_0 <= op_1 to avoid trivial swaps
-        max_solutions: int = 2
+        max_solutions: int = 2,
+        radix: int = 10
     ) -> List[Dict[str, Any]]:
         solver = z3.Solver()
 
@@ -25,7 +26,7 @@ class AdditionSolver:
 
         for i, l in enumerate(operand_lens):
             op = z3.Int(f'op_{i}')
-            solver.add(op >= 10**(l - 1), op < 10**l)
+            solver.add(op >= radix**(l - 1), op < radix**l)
             operands.append(op)
 
             # Digits from left (0 is MSD)
@@ -33,28 +34,28 @@ class AdditionSolver:
             for j in range(l):
                 d = z3.Int(f'op_{i}_d_{j}')
                 if j == 0:
-                    solver.add(d >= 1, d <= 9)
+                    solver.add(d >= 1, d <= radix - 1)
                 else:
-                    solver.add(d >= 0, d <= 9)
+                    solver.add(d >= 0, d <= radix - 1)
                 digits.append(d)
-            solver.add(op == sum(digits[j] * (10**(l - 1 - j)) for j in range(l)))
+            solver.add(op == sum(digits[j] * (radix**(l - 1 - j)) for j in range(l)))
             op_digits.append(digits)
 
         # Sum integer
         total = z3.Int('sum')
         solver.add(total == sum(operands))
-        solver.add(total >= 10**(sum_len - 1), total < 10**sum_len)
+        solver.add(total >= radix**(sum_len - 1), total < radix**sum_len)
 
         # Sum digits
         sum_digits = []
         for j in range(sum_len):
             d = z3.Int(f'sum_d_{j}')
             if j == 0:
-                solver.add(d >= 1, d <= 9)
+                solver.add(d >= 1, d <= radix - 1)
             else:
-                solver.add(d >= 0, d <= 9)
+                solver.add(d >= 0, d <= radix - 1)
             sum_digits.append(d)
-        solver.add(total == sum(sum_digits[j] * (10**(sum_len - 1 - j)) for j in range(sum_len)))
+        solver.add(total == sum(sum_digits[j] * (radix**(sum_len - 1 - j)) for j in range(sum_len)))
 
         if enforce_order:
             for i in range(num_ops - 1):
@@ -83,7 +84,8 @@ class AdditionSolver:
                 'operands': op_vals,
                 'sum': tot_val,
                 'op_digits': [[m[d].as_long() for d in digits] for digits in op_digits],
-                'sum_digits': [m[d].as_long() for d in sum_digits]
+                'sum_digits': [m[d].as_long() for d in sum_digits],
+                'radix': radix
             }
             solutions.append(sol)
 

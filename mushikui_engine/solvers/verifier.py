@@ -17,13 +17,16 @@ class UniquenessVerifier:
         op = puzzle.operation
         meta = puzzle.metadata
 
+        radix = puzzle.radix
+
         if op == Operation.DIVISION:
             return DivisionSolver.verify_uniqueness(
                 d_len=meta["d_len"],
                 q_len=meta["q_len"],
                 D_len=meta["D_len"],
                 steps_info=meta["steps_info"],
-                clues=meta.get("clues", {})
+                clues=meta.get("clues", {}),
+                radix=radix
             )
         elif op == Operation.MULTIPLICATION:
             return MultiplicationSolver.verify_uniqueness(
@@ -31,21 +34,24 @@ class UniquenessVerifier:
                 B_len=meta["B_len"],
                 product_lens=meta["product_lens"],
                 tot_len=meta["tot_len"],
-                clues=meta.get("clues", {})
+                clues=meta.get("clues", {}),
+                radix=radix
             )
         elif op == Operation.ADDITION:
             return AdditionSolver.verify_uniqueness(
                 operand_lens=meta["operand_lens"],
                 sum_len=meta["sum_len"],
                 clues=meta.get("clues", {}),
-                enforce_order=meta.get("enforce_order", False)
+                enforce_order=meta.get("enforce_order", False),
+                radix=radix
             )
         elif op == Operation.SUBTRACTION:
             return SubtractionSolver.verify_uniqueness(
                 A_len=meta["A_len"],
                 B_len=meta["B_len"],
                 diff_len=meta["diff_len"],
-                clues=meta.get("clues", {})
+                clues=meta.get("clues", {}),
+                radix=radix
             )
         else:
             raise ValueError(f"Unsupported operation: {op}")

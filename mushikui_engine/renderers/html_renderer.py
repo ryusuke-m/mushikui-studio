@@ -33,12 +33,15 @@ class HTMLRenderer:
             Operation.SUBTRACTION: "badge-subtraction"
         }.get(puzzle.operation, "badge-default")
 
+        base_badge = f'<span class="base-badge base-{puzzle.radix}">{puzzle.base_label}</span>' if puzzle.radix != 10 else ''
+
         return f"""
-        <div class="puzzle-card" id="puzzle-{puzzle.id}" data-op="{puzzle.operation.value}" data-stars="{puzzle.difficulty.stars}">
+        <div class="puzzle-card" id="puzzle-{puzzle.id}" data-op="{puzzle.operation.value}" data-stars="{puzzle.difficulty.stars}" data-radix="{puzzle.radix}">
           <div class="card-header">
             <div class="header-left">
               <span class="puzzle-id">{puzzle.id}</span>
               <span class="op-badge {op_badge_class}">{puzzle.operation.display_name}</span>
+              {base_badge}
               <span class="difficulty-stars">{puzzle.difficulty.value}</span>
             </div>
             <div class="header-right">
@@ -234,6 +237,19 @@ class HTMLRenderer:
     .badge-multiplication {{ background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }}
     .badge-addition {{ background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }}
     .badge-subtraction {{ background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }}
+    .base-badge {{
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }}
+    .base-2 {{ background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }}
+    .base-8 {{ background: #fef3c7; color: #b45309; border-color: #fde68a; }}
+    .base-12 {{ background: #f3e8ff; color: #7e22ce; border-color: #e9d5ff; }}
+    .base-16 {{ background: #fee2e2; color: #b91c1c; border-color: #fecaca; }}
 
     .difficulty-stars {{
       color: #eab308;

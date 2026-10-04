@@ -704,4 +704,300 @@ def get_curated_puzzles() -> List[Puzzle]:
         ]
     ))
 
+    # =========================================================================
+    # 【第5部：N進法（多進法）の極小ヒント虫食い算篇】
+    # =========================================================================
+
+    # BASE8-MUL-001: 8進法における『孤独の7』（乗算篇）
+    puzzles.append(MultiplicationGenerator.create_puzzle(
+        puzzle_id="BASE8-MUL-001",
+        title="8進法における『孤独の7』（乗算篇）",
+        difficulty=Difficulty.LEVEL_4,
+        A=9, B=63,
+        clues={'B': {1: 7}},
+        radix=8,
+        summary="8進数（0〜7）の世界で繰り広げられる『孤独の7』。乗数の一の位にたった1つ置かれた最大数字「7」から、全盤面が一意に導かれます。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="8進数2桁の被乗数Aの範囲絞り込み",
+                target_part="被乗数A",
+                deduction="乗数の一の位が7で、部分積 A × 7 が8進数2桁（≤ 77₈ = 63）であるため、A ≤ 63/7 = 9 = 11₈。Aは2桁（≥ 10₈ = 8）なので A ∈ {10₈, 11₈}。",
+                revealed_value="A ∈ {10₈, 11₈}",
+                explanation="もし A ≥ 12₈ (10) ならば 10 × 7 = 70 = 106₈ (3桁) となり、部分積が2桁であることに反します。"
+            ),
+            DeductionStep(
+                step_num=2,
+                title="積の桁数（4桁）による被乗数Aの確定",
+                target_part="被乗数A",
+                deduction="全体の積が8進数4桁（≥ 1000₈ = 512）である。もし A = 10₈ = 8 ならば、乗数Bの最大値 77₈ = 63 を掛けても 8 × 63 = 504 < 512 となり4桁に届かない。",
+                revealed_value="被乗数 A = 11₈ (9)",
+                explanation="したがって A は 11₈ (9) しかあり得ません。"
+            ),
+            DeductionStep(
+                step_num=3,
+                title="乗数Bの確定と全盤面の完成",
+                target_part="乗数Bおよび積",
+                deduction="9 × B ≥ 512 より B ≥ 57。乗数の一の位は7なので B = 8×b₁ + 7。b₁ ≤ 6 なら B ≤ 55 < 57 で矛盾。よって b₁ = 7 に確定し、B = 77₈。",
+                revealed_value="11₈ × 77₈ = 1067₈",
+                explanation="部分積 11₈ × 7 = 77₈、全体の積 1067₈ となり、すべての空欄が完全に一意確定します。"
+            )
+        ]
+    ))
+
+    # BASE8-DIV-001: 8進法における『孤独の7』（除算篇）
+    puzzles.append(DivisionGenerator.create_puzzle(
+        puzzle_id="BASE8-DIV-001",
+        title="8進法における『孤独の7』（除算篇）",
+        difficulty=Difficulty.LEVEL_4,
+        d=9, q=63, D=567,
+        clues={'q': {1: 7}},
+        radix=8,
+        summary="8進法の割り算筆算。商の一の位に現れる「7」を手がかりに、各段の部分積と引き算の整合性から全3桁・4桁の数が一意に確定します。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="除数dの絞り込み",
+                target_part="除数d",
+                deduction="商の一の位が7で、除数(2桁) × 7 が2桁（≤ 77₈ = 63）であるため、除数 d ≤ 9 = 11₈。2桁なので d ∈ {10₈, 11₈}。",
+                revealed_value="除数 d ∈ {10₈, 11₈}",
+                explanation="d ≥ 12₈ では積が3桁になります。"
+            ),
+            DeductionStep(
+                step_num=2,
+                title="被除数と商の完全確定",
+                target_part="除数・商・被除数",
+                deduction="被除数4桁から引く最初の段、および最後の段で割り切れる条件から、除数は 11₈、商は 77₈ に確定。",
+                revealed_value="1067₈ ÷ 11₈ = 77₈",
+                explanation="106₈ - 77₈ = 7₈、次桁7を下ろして 77₈ - 77₈ = 0 となり完全に合致します。"
+            )
+        ]
+    ))
+
+    # BASE16-MUL-001: 16進法における『孤独のF』（乗算篇）
+    puzzles.append(MultiplicationGenerator.create_puzzle(
+        puzzle_id="BASE16-MUL-001",
+        title="16進法における『孤独のF』（乗算篇）",
+        difficulty=Difficulty.LEVEL_4,
+        A=17, B=255,
+        clues={'B': {1: 15}},
+        radix=16,
+        summary="コンピュータサイエンスの母国語である16進数（0〜F）の世界。乗数の一の位に唯一提示された最大数字「F」から、4桁の積までの全盤面が導かれます。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="16進数2桁の被乗数Aの絞り込み",
+                target_part="被乗数A",
+                deduction="乗数の一の位が F (15) で、部分積 A × 15 が16進数2桁（≤ FF₁₆ = 255）であるため、A ≤ 255/15 = 17 = 11₁₆。2桁なので A ∈ {10₁₆, 11₁₆}。",
+                revealed_value="A ∈ {10₁₆, 11₁₆}",
+                explanation="もし A ≥ 12₁₆ (18) なら 18 × 15 = 270 = 10E₁₆ (3桁) となり矛盾します。"
+            ),
+            DeductionStep(
+                step_num=2,
+                title="積の桁数（4桁）による被乗数Aの確定",
+                target_part="被乗数A",
+                deduction="全体の積が16進数4桁（≥ 1000₁₆ = 4096）である。もし A = 10₁₆ = 16 ならば、乗数Bの最大値 FF₁₆ = 255 を掛けても 16 × 255 = 4080 < 4096 となり4桁に届かない。",
+                revealed_value="被乗数 A = 11₁₆ (17)",
+                explanation="したがって A は 11₁₆ (17) に確定します。"
+            ),
+            DeductionStep(
+                step_num=3,
+                title="乗数Bと積の確定",
+                target_part="乗数Bおよび積",
+                deduction="17 × B ≥ 4096 より B ≥ 241。乗数の一の位は F (15) なので B = 16×b₁ + 15。b₁ ≤ 14 (E) ならば B ≤ 239 < 241 で矛盾。よって b₁ = 15 = F に確定。",
+                revealed_value="11₁₆ × FF₁₆ = 10EF₁₆",
+                explanation="部分積はともに FF₁₆、全体の積は 10EF₁₆ となり一意に確定します。"
+            )
+        ]
+    ))
+
+    # BASE16-DIV-001: 16進法における『孤独のF』（除算篇）
+    puzzles.append(DivisionGenerator.create_puzzle(
+        puzzle_id="BASE16-DIV-001",
+        title="16進法における『孤独のF』（除算篇）",
+        difficulty=Difficulty.LEVEL_4,
+        d=17, q=255, D=4335,
+        clues={'q': {1: 15}},
+        radix=16,
+        summary="16進法の筆算割り算。商の一の位の「F」のみを手がかりに、除数11₁₆と被除数10EF₁₆が完全に一意に定まります。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="商の一の位Fによる除数の絞り込み",
+                target_part="除数d",
+                deduction="商の一の位がFで、除数(2桁) × F が2桁（≤ FF₁₆ = 255）であるため、d ≤ 17 = 11₁₆。2桁なので d ∈ {10₁₆, 11₁₆}。",
+                revealed_value="除数 d ∈ {10₁₆, 11₁₆}",
+                explanation="d ≥ 12₁₆ では積が3桁になります。"
+            ),
+            DeductionStep(
+                step_num=2,
+                title="被除数の桁数と割り切れ条件による確定",
+                target_part="全盤面",
+                deduction="被除数が4桁で、最初の部分積が2桁、引き算の残りに一の位を下ろしてF倍で割り切れる解は 10EF₁₆ ÷ 11₁₆ = FF₁₆ のみ。",
+                revealed_value="10EF₁₆ ÷ 11₁₆ = FF₁₆",
+                explanation="10E₁₆ - FF₁₆ = F₁₆、末尾Fを下ろして FF₁₆ - FF₁₆ = 0 と合致します。"
+            )
+        ]
+    ))
+
+    # BASE12-MUL-001: 12進法における『孤独のB』（乗算篇）
+    puzzles.append(MultiplicationGenerator.create_puzzle(
+        puzzle_id="BASE12-MUL-001",
+        title="12進法における『孤独のB』（乗算篇）",
+        difficulty=Difficulty.LEVEL_4,
+        A=13, B=143,
+        clues={'B': {1: 11}},
+        radix=12,
+        summary="優れた高度合成数12を基数とする12進法（0〜B、B=11）。乗数の一の位の「B」1つから、すべてのマスが論理的に埋まります。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="被乗数Aの範囲絞り込み",
+                target_part="被乗数A",
+                deduction="12進法で乗数の一の位が最大数字B(11)であり、部分積 A × B が2桁（≤ BB₁₂ = 143）であるため A ≤ 143/11 = 13 = 11₁₂。よって A ∈ {10₁₂, 11₁₂}。",
+                revealed_value="A ∈ {10₁₂, 11₁₂}",
+                explanation="A ≥ 12₁₂ では部分積が3桁になります。"
+            ),
+            DeductionStep(
+                step_num=2,
+                title="4桁の積による解の確定",
+                target_part="被乗数・乗数・積",
+                deduction="積が4桁（≥ 1000₁₂ = 1728）になるためには、A = 10₁₂ = 12 では 12 × 143 = 1716 < 1728 となり不足。したがって A = 11₁₂ (13)、B = BB₁₂ (143)。",
+                revealed_value="11₁₂ × BB₁₂ = 10AB₁₂",
+                explanation="13 × 143 = 1859 = 10AB₁₂ となり一意に確定します。"
+            )
+        ]
+    ))
+
+    # BASE2-MUL-001: 2進法の極限『0文字覆面算』（完全空欄乗算）
+    puzzles.append(MultiplicationGenerator.create_puzzle(
+        puzzle_id="BASE2-MUL-001",
+        title="2進法の極限『0文字覆面算』（完全空欄乗算）",
+        difficulty=Difficulty.LEVEL_3,
+        A=3, B=3,
+        clues={},
+        radix=2,
+        summary="2進法（0と1の世界）では、盤面に数字ヒントが1つも書かれていなくても（完全な空欄□のみ）、筆算の形状と桁数制約だけで答えが一意に決定します！",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="2進数の基本性質と乗数の決定",
+                target_part="乗数B",
+                deduction="2進数では各桁は0か1のみで、最上位桁は1。乗数B(2桁)の各桁との積（部分積）が2段とも2桁で存在するため、乗数の各桁はどちらも1。",
+                revealed_value="乗数 B = 11₂ (3)",
+                explanation="もし乗数の一の位が0なら、第1部分積は0（または行が存在しない）となります。"
+            ),
+            DeductionStep(
+                step_num=2,
+                title="積の桁数（4桁）による被乗数の決定",
+                target_part="被乗数Aおよび積",
+                deduction="2桁の2進数Aは 10₂ (2) または 11₂ (3)。もし A = 10₂ なら積は 2 × 3 = 6 = 110₂ (3桁)。積は4桁（1000₂以上）なので A = 11₂ (3) に確定！",
+                revealed_value="11₂ × 11₂ = 1001₂",
+                explanation="ヒント文字が0個でも、筆算の幾何学的レイアウトだけで 3 × 3 = 9 が唯一の解となります。"
+            )
+        ]
+    ))
+
+    # BASE2-ADD-001: 2進法の極限『0文字加算』（繰り上がり連鎖）
+    puzzles.append(AdditionGenerator.create_puzzle(
+        puzzle_id="BASE2-ADD-001",
+        title="2進法の極限『0文字加算』（繰り上がり連鎖）",
+        difficulty=Difficulty.LEVEL_2,
+        operands=[7, 1],
+        clues={},
+        radix=2,
+        summary="3桁＋1桁＝4桁という筆算の桁数配置だけで、2進法の繰り上がり連鎖により 111₂ + 1₂ = 1000₂ が確定する究極のヒント0個問題。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="3桁最大値と1桁最大値の加算制約",
+                target_part="全オペランド",
+                deduction="第1項は3桁（最大 111₂ = 7）、第2項は1桁（最大 1₂ = 1）。和は4桁（最小 1000₂ = 8）。7 + 1 = 8 以外の組み合わせは存在しない！",
+                revealed_value="111₂ + 1₂ = 1000₂",
+                explanation="盤面にヒントが1文字もなくても、桁数の関係から解が一意に確定します。"
+            )
+        ]
+    ))
+
+    # BASE2-SUB-001: 2進法の極限『0文字減算』（桁借り連鎖）
+    puzzles.append(SubtractionGenerator.create_puzzle(
+        puzzle_id="BASE2-SUB-001",
+        title="2進法の極限『0文字減算』（桁借り連鎖）",
+        difficulty=Difficulty.LEVEL_2,
+        A=8, B=7,
+        clues={},
+        radix=2,
+        summary="4桁－3桁＝1桁という筆算の輪郭のみから、8－7＝1（1000₂－111₂＝1₂）が唯一解として導かれるヒント0個の引き算。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="引かれる数・引く数・差の境界解析",
+                target_part="全オペランド",
+                deduction="引かれる数Aは4桁（8〜15）、引く数Bは3桁（4〜7）、差は1桁（1）。A - B = 1 より A = B + 1 ≤ 7 + 1 = 8。よって A=8, B=7 しかない。",
+                revealed_value="1000₂ - 111₂ = 1₂",
+                explanation="引き算の境界値解析により、全桁が一意に決定します。"
+            )
+        ]
+    ))
+
+    # BASE2-DIV-001: 2進法の『0文字除算』（完全空欄長除法）
+    puzzles.append(DivisionGenerator.create_puzzle(
+        puzzle_id="BASE2-DIV-001",
+        title="2進法の『0文字除算』（完全空欄長除法）",
+        difficulty=Difficulty.LEVEL_4,
+        d=3, q=7, D=21,
+        clues={},
+        radix=2,
+        summary="数字のヒントが全くない（すべて□）2進法の筆算割り算。3段にわたる引き算の段数と桁数の構造から、21÷3＝7（10101₂÷11₂＝111₂）が一意に確定します。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="商の桁数と各段の商の決定",
+                target_part="商q",
+                deduction="商は3桁。各桁で割り算が行われて部分積が存在するため、商の各桁はすべて1（q = 111₂ = 7）。",
+                revealed_value="商 q = 111₂ (7)",
+                explanation="2進法では商の桁が0なら引き算を行わず次の桁を下ろすため、3段引き算があるということは商の3桁すべてが1です。"
+            ),
+            DeductionStep(
+                step_num=2,
+                title="除数と被除数の確定",
+                target_part="除数dおよび被除数D",
+                deduction="除数は2桁（10₂ または 11₂）。各段で引かれる数（除数×1）は2桁。5桁の被除数を3桁の商7で割って割り切れる2桁の数は d = 11₂ = 3 のみ（3×7 = 21 = 10101₂）。",
+                revealed_value="10101₂ ÷ 11₂ = 111₂",
+                explanation="部分積がすべて 11₂ となり、引き算の余り推移（101₂-11₂=10₂ → 100₂-11₂=1₂ → 11₂-11₂=0）が完全に合致します。"
+            )
+        ]
+    ))
+
+    # BASE16-SUB-001: 16進法における『孤独の1』（減算篇）
+    puzzles.append(SubtractionGenerator.create_puzzle(
+        puzzle_id="BASE16-SUB-001",
+        title="16進法における『孤独の1』（減算篇）",
+        difficulty=Difficulty.LEVEL_3,
+        A=4096, B=4095,
+        clues={'diff': {0: 1}},
+        radix=16,
+        summary="16進数で4桁－3桁＝1桁であり、差が「1」という唯一の手がかりから、4096－4095＝1（1000₁₆－FFF₁₆＝1₁₆）が一意に導かれます。",
+        source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
+        deduction_steps=[
+            DeductionStep(
+                step_num=1,
+                title="16進数の桁境界と差の1",
+                target_part="全オペランド",
+                deduction="引く数Bは16進数3桁（最大 FFF₁₆ = 4095）。引かれる数Aは4桁（最小 1000₁₆ = 4096）。差が1であるため、A = B + 1 ≤ 4095 + 1 = 4096。",
+                revealed_value="1000₁₆ - FFF₁₆ = 1₁₆",
+                explanation="16進数の桁上がりの境界によって、たった1つのヒント「1」から全桁が確定します。"
+            )
+        ]
+    ))
+
     return puzzles

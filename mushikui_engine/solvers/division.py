@@ -17,7 +17,8 @@ class DivisionSolver:
         D_len: int,
         steps_info: List[Dict[str, Any]],
         clues: Optional[Dict[str, Dict[int, int]]] = None,
-        max_solutions: int = 2
+        max_solutions: int = 2,
+        radix: int = 10
     ) -> List[Dict[str, Any]]:
         clues = clues or {}
         solver = z3.Solver()
@@ -26,27 +27,27 @@ class DivisionSolver:
         d_digits = [z3.Int(f'd_{i}') for i in range(d_len)]
         for i in range(d_len):
             if i == 0:
-                solver.add(d_digits[i] >= 1, d_digits[i] <= 9)
+                solver.add(d_digits[i] >= 1, d_digits[i] <= radix - 1)
             else:
-                solver.add(d_digits[i] >= 0, d_digits[i] <= 9)
+                solver.add(d_digits[i] >= 0, d_digits[i] <= radix - 1)
         d = z3.Int('d')
-        solver.add(d == sum(d_digits[i] * (10**(d_len - 1 - i)) for i in range(d_len)))
+        solver.add(d == sum(d_digits[i] * (radix**(d_len - 1 - i)) for i in range(d_len)))
 
         # Quotient digits
         q_digits = [z3.Int(f'q_{i}') for i in range(q_len)]
         for i in range(q_len):
             if i == 0:
-                solver.add(q_digits[i] >= 1, q_digits[i] <= 9)
+                solver.add(q_digits[i] >= 1, q_digits[i] <= radix - 1)
             else:
-                solver.add(q_digits[i] >= 0, q_digits[i] <= 9)
+                solver.add(q_digits[i] >= 0, q_digits[i] <= radix - 1)
 
         # Dividend digits
         D_digits = [z3.Int(f'D_{i}') for i in range(D_len)]
         for i in range(D_len):
             if i == 0:
-                solver.add(D_digits[i] >= 1, D_digits[i] <= 9)
+                solver.add(D_digits[i] >= 1, D_digits[i] <= radix - 1)
             else:
-                solver.add(D_digits[i] >= 0, D_digits[i] <= 9)
+                solver.add(D_digits[i] >= 0, D_digits[i] <= radix - 1)
 
         # Clues on Divisor digits
         if 'd' in clues:
@@ -75,30 +76,29 @@ class DivisionSolver:
 
             m_expr = curr_rem
             for _ in range(num_bring):
-                m_expr = m_expr * 10 + D_digits[d_idx]
+                m_expr = m_expr * radix + D_digits[d_idx]
                 d_idx += 1
 
-            solver.add(m_expr >= 10**(m_len - 1), m_expr < 10**m_len)
+            solver.add(m_expr >= radix**(m_len - 1), m_expr < radix**m_len)
 
             # Product constraint
-            solver.add(q_digits[q_idx] >= 1, q_digits[q_idx] <= 9)
+            solver.add(q_digits[q_idx] >= 1, q_digits[q_idx] <= radix - 1)
             p = d * q_digits[q_idx]
-            solver.add(p >= 10**(p_len - 1), p < 10**p_len)
+            solver.add(p >= radix**(p_len - 1), p < radix**p_len)
 
             # Clues on product digits if any
             key_p = f'p{step_idx}'
             if key_p in clues:
                 for pos, val in clues[key_p].items():
-                    # p_dig at position pos from left
-                    div_factor = 10**(p_len - 1 - pos)
-                    solver.add((p / div_factor) % 10 == val)
+                    div_factor = radix**(p_len - 1 - pos)
+                    solver.add((p / div_factor) % radix == val)
 
             # Clues on sub-dividend digits if any
             key_m = f'm{step_idx}'
             if key_m in clues:
                 for pos, val in clues[key_m].items():
-                    div_factor = 10**(m_len - 1 - pos)
-                    solver.add((m_expr / div_factor) % 10 == val)
+                    div_factor = radix**(m_len - 1 - pos)
+                    solver.add((m_expr / div_factor) % radix == val)
 
             if step.get('is_last'):
                 solver.add(m_expr == p)
@@ -119,15 +119,16 @@ class DivisionSolver:
             d_val = m[d].as_long()
             q_digits_val = [m[qd].as_long() for qd in q_digits]
             D_digits_val = [m[Dd].as_long() for Dd in D_digits]
-            q_val = sum(q_digits_val[i] * 10**(q_len - 1 - i) for i in range(q_len))
-            D_val = sum(D_digits_val[i] * 10**(D_len - 1 - i) for i in range(D_len))
+            q_val = sum(q_digits_val[i] * (radix**(q_len - 1 - i)) for i in range(q_len))
+            D_val = sum(D_digits_val[i] * (radix**(D_len - 1 - i)) for i in range(D_len))
 
             sol = {
                 'd': d_val,
                 'q': q_val,
                 'D': D_val,
                 'q_digits': q_digits_val,
-                'D_digits': D_digits_val
+                'D_digits': D_digits_val,
+                'radix': radix
             }
             solutions.append(sol)
             solver.add(z3.Or(d != d_val, *(q_digits[i] != q_digits_val[i] for i in range(q_len))))
@@ -141,7 +142,8 @@ class DivisionSolver:
         q_len: int,
         D_len: int,
         steps_info: List[Dict[str, Any]],
-        clues: Optional[Dict[str, Dict[int, int]]] = None
+        clues: Optional[Dict[str, Dict[int, int]]] = None,
+        radix: int = 10
     ) -> Tuple[bool, Optional[Dict[str, Any]]]:
         sols = cls.solve_division_pattern(
             d_len=d_len,
@@ -149,7 +151,8 @@ class DivisionSolver:
             D_len=D_len,
             steps_info=steps_info,
             clues=clues,
-            max_solutions=2
+            max_solutions=2,
+            radix=radix
         )
         if len(sols) == 1:
             return True, sols[0]

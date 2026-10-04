@@ -4,7 +4,7 @@ Constructs addition puzzles with minimal clues, formatted rows, and verification
 """
 
 from typing import List, Dict, Optional, Tuple, Any
-from ..models import Puzzle, PuzzleRow, Operation, Difficulty, DeductionStep
+from ..models import Puzzle, PuzzleRow, Operation, Difficulty, DeductionStep, int_to_base_str, val_to_base_char
 
 class AdditionGenerator:
     """Generates addition cryptarithm puzzles."""
@@ -20,17 +20,18 @@ class AdditionGenerator:
         summary: str = "",
         deduction_steps: Optional[List[DeductionStep]] = None,
         source: str = "",
-        enforce_order: bool = False
+        enforce_order: bool = False,
+        radix: int = 10
     ) -> Puzzle:
         sum_val = sum(operands)
-        op_strs = [str(x) for x in operands]
-        sum_s = str(sum_val)
+        op_strs = [int_to_base_str(x, radix) for x in operands]
+        sum_s = int_to_base_str(sum_val, radix)
         operand_lens = [len(s) for s in op_strs]
 
         hint_count = sum(len(sub) for sub in clues.values())
 
-        problem_rows = cls._build_rows(operands, sum_val, clues, is_solution=False)
-        solution_rows = cls._build_rows(operands, sum_val, clues, is_solution=True)
+        problem_rows = cls._build_rows(operands, sum_val, clues, is_solution=False, radix=radix)
+        solution_rows = cls._build_rows(operands, sum_val, clues, is_solution=True, radix=radix)
 
         return Puzzle(
             id=puzzle_id,
@@ -42,14 +43,16 @@ class AdditionGenerator:
             problem_rows=problem_rows,
             solution_rows=solution_rows,
             deduction_steps=deduction_steps or [],
-            operands={'operands': operands, 'sum': sum_val},
+            operands={'operands': operands, 'sum': sum_val, 'op_strs': op_strs, 'sum_str': sum_s},
+            radix=radix,
             uniqueness_verified=True,
             metadata={
                 'operand_lens': operand_lens,
                 'sum_len': len(sum_s),
                 'clues': clues,
                 'enforce_order': enforce_order,
-                'source': source
+                'source': source,
+                'radix': radix
             }
         )
 
@@ -59,10 +62,11 @@ class AdditionGenerator:
         operands: List[int],
         sum_val: int,
         clues: Dict[str, Dict[int, int]],
-        is_solution: bool
+        is_solution: bool,
+        radix: int = 10
     ) -> List[PuzzleRow]:
-        op_strs = [str(x) for x in operands]
-        sum_s = str(sum_val)
+        op_strs = [int_to_base_str(x, radix) for x in operands]
+        sum_s = int_to_base_str(sum_val, radix)
         max_len = max(max(len(s) for s in op_strs) + 2, len(sum_s))
         width = max_len * 2 + 2
 

@@ -55,13 +55,25 @@
       <!-- Filter Controls -->
       <div class="filter-card">
         <div class="filter-group">
+          <label>基数 (進法):</label>
+          <div class="btn-group" id="filter-base">
+            <button class="f-btn active" onclick="setBaseFilter('all', this)">すべて (36)</button>
+            <button class="f-btn" onclick="setBaseFilter('10', this)">10進法 (26)</button>
+            <button class="f-btn" onclick="setBaseFilter('2', this)">2進法 (4)</button>
+            <button class="f-btn" onclick="setBaseFilter('8', this)">8進法 (2)</button>
+            <button class="f-btn" onclick="setBaseFilter('12', this)">12進法 (1)</button>
+            <button class="f-btn" onclick="setBaseFilter('16', this)">16進法 (3)</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
           <label>演算種別:</label>
           <div class="btn-group" id="filter-op">
             <button class="f-btn active" onclick="setOpFilter('all', this)">すべて</button>
-            <button class="f-btn" onclick="setOpFilter('division', this)">割算 (10)</button>
-            <button class="f-btn" onclick="setOpFilter('multiplication', this)">掛算 (5)</button>
-            <button class="f-btn" onclick="setOpFilter('addition', this)">足算 (5)</button>
-            <button class="f-btn" onclick="setOpFilter('subtraction', this)">引算 (6)</button>
+            <button class="f-btn" onclick="setOpFilter('division', this)">割算 (12)</button>
+            <button class="f-btn" onclick="setOpFilter('multiplication', this)">掛算 (9)</button>
+            <button class="f-btn" onclick="setOpFilter('addition', this)">足算 (6)</button>
+            <button class="f-btn" onclick="setOpFilter('subtraction', this)">引算 (9)</button>
           </div>
         </div>
 
@@ -69,6 +81,7 @@
           <label>ヒント数:</label>
           <div class="btn-group" id="filter-hints">
             <button class="f-btn active" onclick="setHintFilter('all', this)">すべて</button>
+            <button class="f-btn" onclick="setHintFilter('0', this)">⚡ 0ヒント (完全空欄 4問)</button>
             <button class="f-btn" onclick="setHintFilter('1', this)">🌟 孤独のn (ヒント1個)</button>
             <button class="f-btn" onclick="setHintFilter('2', this)">ヒント2個</button>
           </div>
@@ -113,6 +126,7 @@
             </div>
             <div class="player-header-meta">
               <span id="player-p-op" class="op-tag">割算</span>
+              <span id="player-p-base" class="base-tag" style="display: none;">10進法</span>
               <span id="player-p-diff" class="diff-tag">★★★★★</span>
               <span id="player-p-hints" class="hint-tag">初期ヒント: 1個</span>
             </div>
@@ -120,7 +134,7 @@
 
           <div class="interactive-stage">
             <div class="stage-instructions">
-              💡 <strong>操作方法</strong>: 盤面の空欄（<code>□</code>）をクリックして半角数字（0〜9）を入力してください。すべて埋めたら「答え合わせ」ボタンを押して正解を判定できます。
+              💡 <strong>操作方法</strong>: 盤面の空欄（<code>□</code>）をクリックして半角数字または英字（0〜9, A〜F）を入力してください。すべて埋めたら「答え合わせ」ボタンを押して正解を判定できます。
             </div>
 
             <div class="board-interactive-container">
