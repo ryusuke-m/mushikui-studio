@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧮 極小ヒント虫食い算・傑作問題集 & インタラクティブ解法スタジオ</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=JetBrains+Mono:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation / Top Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-icon">🧮</span>
+        <div class="brand-text">
+          <h1>極小ヒント虫食い算スタジオ</h1>
+          <p class="brand-sub">〜伝説の名作『孤独の7』から始まる極限覆面算の世界〜</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="nav-btn active" id="tab-book" onclick="switchTab('book')">📖 問題集（全26選）</button>
+        <button class="nav-btn" id="tab-player" onclick="switchTab('player')">✏️ インタラクティブ挑戦</button>
+        <button class="nav-btn" id="tab-about" onclick="switchTab('about')">📜 孤独の7の解説</button>
+        <button class="nav-btn print-action-btn" onclick="window.print()">🖨️ 印刷用問題用紙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- TAB 1: Problem Book (Catalog View) -->
+    <section id="view-book" class="view-section active">
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h2>極めて少ない初期盤面から、唯一の答えが導かれる奇跡。</h2>
+          <p>
+            1922年にE・F・オドリングが発表した名作『孤独の7』をはじめ、たった1〜2個の数字を手がかりに、
+            筆算の段の桁数・引き算・繰り下がりの数学的制約だけで全ての数字が一意に定まる珠玉の問題集です。<br>
+            <strong>全問 Z3 SMT ソルバーにより数学的に解が唯一であることが厳密に証明されています。</strong>
+          </p>
+          <div class="hero-badges">
+            <span class="h-badge">全 26 問収録</span>
+            <span class="h-badge">割り算・掛け算・足し算・引き算 網羅</span>
+            <span class="h-badge">ヒント1個の「孤独のn」多数収録</span>
+            <span class="h-badge">完全解答・論理解説付き</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="filter-card">
+        <div class="filter-group">
+          <label>演算種別:</label>
+          <div class="btn-group" id="filter-op">
+            <button class="f-btn active" onclick="setOpFilter('all', this)">すべて</button>
+            <button class="f-btn" onclick="setOpFilter('division', this)">割算 (10)</button>
+            <button class="f-btn" onclick="setOpFilter('multiplication', this)">掛算 (5)</button>
+            <button class="f-btn" onclick="setOpFilter('addition', this)">足算 (5)</button>
+            <button class="f-btn" onclick="setOpFilter('subtraction', this)">引算 (6)</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>ヒント数:</label>
+          <div class="btn-group" id="filter-hints">
+            <button class="f-btn active" onclick="setHintFilter('all', this)">すべて</button>
+            <button class="f-btn" onclick="setHintFilter('1', this)">🌟 孤独のn (ヒント1個)</button>
+            <button class="f-btn" onclick="setHintFilter('2', this)">ヒント2個</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>難易度:</label>
+          <div class="btn-group" id="filter-diff">
+            <button class="f-btn active" onclick="setDiffFilter('all', this)">すべて</button>
+            <button class="f-btn" onclick="setDiffFilter('5', this)">★★★★★ 伝説級</button>
+            <button class="f-btn" onclick="setDiffFilter('4', this)">★★★★ 上級</button>
+            <button class="f-btn" onclick="setDiffFilter('3', this)">★★★ 中級</button>
+            <button class="f-btn" onclick="setDiffFilter('2', this)">★★ 初中級</button>
+            <button class="f-btn" onclick="setDiffFilter('1', this)">★ 初級</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Puzzle Catalog Cards Container -->
+      <div id="catalog-container" class="cards-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+
+    <!-- TAB 2: Interactive Player View -->
+    <section id="view-player" class="view-section">
+      <div class="player-wrapper">
+        <div class="player-sidebar">
+          <h3>問題選択</h3>
+          <div class="player-puzzle-list" id="player-puzzle-list">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div class="player-main">
+          <div class="player-header">
+            <div>
+              <span id="player-p-id" class="badge-id">DIV-001</span>
+              <h2 id="player-p-title">オドリングの「孤独の7」</h2>
+              <p id="player-p-desc" class="p-sub"></p>
+            </div>
+            <div class="player-header-meta">
+              <span id="player-p-op" class="op-tag">割算</span>
+              <span id="player-p-diff" class="diff-tag">★★★★★</span>
+              <span id="player-p-hints" class="hint-tag">初期ヒント: 1個</span>
+            </div>
+          </div>
+
+          <div class="interactive-stage">
+            <div class="stage-instructions">
+              💡 <strong>操作方法</strong>: 盤面の空欄（<code>□</code>）をクリックして半角数字（0〜9）を入力してください。すべて埋めたら「答え合わせ」ボタンを押して正解を判定できます。
+            </div>
+
+            <div class="board-interactive-container">
+              <div id="interactive-grid" class="interactive-grid">
+                <!-- Interactive board inputs rendered by JS -->
+              </div>
+            </div>
+
+            <div class="player-actions">
+              <button class="btn btn-check" onclick="checkPlayerSolution()">✅ 答え合わせ</button>
+              <button class="btn btn-hint" onclick="revealPlayerHint()">💡 解法のヒントを見る</button>
+              <button class="btn btn-reveal" onclick="revealPlayerSolution()">👁️ 正解を表示する</button>
+              <button class="btn btn-clear" onclick="clearPlayerInputs()">🔄 入力をリセット</button>
+            </div>
+
+            <div id="player-feedback" class="feedback-box" style="display: none;"></div>
+            <div id="player-hint-box" class="hint-box" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: About "The Lonely 7" & Mathematical Logic -->
+    <section id="view-about" class="view-section">
+      <div class="article-card">
+        <h2>数学パズル史の至宝『孤独の7（The Lonely 7）』とは何か？</h2>
+        
+        <div class="article-body">
+          <h3>1. 誕生と歴史的背景</h3>
+          <p>
+            『孤独の7（英語: The Solitary 7）』は、イギリスの化学者・パズル作家である <strong>E・F・オドリング（E. F. Odling）</strong> によって考案され、
+            1922年11月号の『ストランド・マガジン』誌におけるヘンリー・デュードニーの数学パズルコラム「PERPLEXITIES」に掲載されたのが初出とされています。
+          </p>
+          <p>
+            その後、1925年にA・S・E・アッカーマンの著書『Scientific Paradoxes and Problems』に収録され、世界的な名声を獲得しました。
+            日本においては、昭和21年（1946年）に作家・海野十三（筆名：佐野昌一）が著した名著『虫喰ひ算大會』の【例題七】として詳しく紹介され、
+            多くの数学愛好家を魅了し続けています。
+          </p>
+
+          <h3>2. なぜ「孤独」なのか？</h3>
+          <p>
+            問題の盤面には、割り算の筆算の長い枠組みの中に、商の千の位に「7」という数字がただ1つだけ書かれており、
+            それ以外のすべての数字（被除数8桁、除数3桁、商の残り4桁、各段の部分積と引き算の結果）が完全に空欄（虫食い）になっています。
+            この「提示された数字が7たった1個」という佇まいから、『孤独の7』と命名されました。
+            以後、ヒントが1個しかない極限の虫食い算を総称して「孤独のn」と呼ぶ伝統が生まれました。
+          </p>
+
+          <div class="diagram-showcase">
+            <h4>【原題の盤面】</h4>
+            <pre class="ascii-art">
+               □ ７ □ □ □
+      ┌─────────────────
+□ □ □ │ □ □ □ □ □ □ □ □
+         □ □ □ □
+        ─────────
+             □ □ □
+             □ □ □
+            ───────
+             □ □ □ □
+               □ □ □
+              ───────
+                 □ □ □ □
+                 □ □ □ □
+                ─────────
+                       ０
+            </pre>
+          </div>
+
+          <h3>3. 解法の論理的思考プロセス（人間が解く道筋）</h3>
+          <p>
+            この問題の最大の魅力は、「総当たり（しらみつぶし）」をしなくても、小学生でも理解できる筆算の基本ルールだけで、
+            まるで探偵がアリバイを崩すかのように一本道で解が確定していく点にあります。
+          </p>
+          <ol class="logic-steps">
+            <li>
+              <strong>二重桁下げによる商の十位「0」の確定</strong><br>
+              第4回目の引き算を見ると、上から一気に2桁下りてきています（11では割れず1116で割っている）。
+              通常の筆算で割れずに次の桁を下ろすとき、商に立つ数字は必ず <code>0</code> です。
+              これにより商は <code>□ 7 □ 0 □</code> と判明します。
+            </li>
+            <li>
+              <strong>商の「7」と積の桁数による除数の絞り込み</strong><br>
+              除数は3桁です。商の7を掛けた第2段の積は3桁（□□□）です。<br>
+              もし除数の百の位が2以上だとすると、<code>200 × 7 = 1400</code> となり4桁になってしまいます。
+              したがって、<strong>除数の百の位は「1」で確定</strong>します（除数は 1□□）。<br>
+              さらに、商の万位と一の位による積は4桁（□□□□）になっています。
+              7倍で3桁なのに4桁になるということは、万位と一の位は7より大きい <code>8</code> または <code>9</code> です。
+            </li>
+            <li>
+              <strong>除数 124 と商 97809 の一意確定</strong><br>
+              第3段の積（商の百位による積）は3桁です。百位を7と仮定すると引き算の残り桁数と合わず、百位は8になります。
+              8倍で3桁（1000未満）になる除数は <code>124以下</code> です（125×8=1000）。<br>
+              一方で万位（9倍）で4桁（1000以上）になるには、除数は <code>112以上</code> でなければなりません。<br>
+              各段の引き算で4桁から3桁を引いて2桁下がる条件を精密に追うと、除数は <strong>124</strong>、商は <strong>97809</strong>、
+              被除数は <strong>12,128,316</strong> 以外に数学的に絶対にあり得ないことが完全に証明されます！
+            </li>
+          </ol>
+
+          <h3>4. 本スタジオが目指した地平</h3>
+          <p>
+            本システム「極小ヒント虫食い算スタジオ」では、この『孤独の7』の精神を受け継ぎ、
+            最先端の制約充足ソルバー（Z3 SMT Solver）を活用して、割り算だけでなく掛け算・足し算・引き算においても、
+            「最小限の初期ヒントから唯一の答えが導かれる」厳密なパズルを体系化しました。
+            ぜひ各問題の美しさを味わってください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>🧮 極小ヒント虫食い算スタジオ (Mushikui Studio) &copy; 2026</p>
+      <p class="footer-note">All puzzles verified with Z3 SMT Theorem Prover • Mathematical Uniqueness Guaranteed</p>
+    </div>
+  </footer>
+
+  <script src="puzzles_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

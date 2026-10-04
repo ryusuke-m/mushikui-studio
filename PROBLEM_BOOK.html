@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>極小ヒント虫食い算傑作問題集 〜孤独の7から始まる極限覆面算の世界〜</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --board-bg: #fcfbf9;
+      --board-border: #d6cebf;
+      --accent-red: #b91c1c;
+      --accent-green: #15803d;
+      --accent-purple: #6d28d9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header.site-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+    header p.subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 15px;
+    }
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .stat-chip {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    
+    .filters-bar {
+      background: white;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .filter-btn {
+      padding: 6px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .print-btn {
+      margin-left: auto;
+      background: #334155;
+      color: white;
+    }
+
+    .puzzle-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .puzzle-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .puzzle-id {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    .op-badge {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .badge-division { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .badge-multiplication { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+    .badge-addition { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+    .badge-subtraction { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+
+    .difficulty-stars {
+      color: #eab308;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+    .hint-pill {
+      background: #f1f5f9;
+      color: #334155;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+    .puzzle-title {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    .puzzle-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .board-container {
+      display: flex;
+      gap: 20px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    }
+    .board-column {
+      flex: 1;
+      min-width: 300px;
+    }
+    .board-label {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .solution-label {
+      color: var(--accent-green);
+    }
+    pre.mushikui-board {
+      background: var(--board-bg);
+      border: 1.5px solid var(--board-border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'Courier New', Courier, 'Cascadia Code', monospace;
+      font-size: 1.05rem;
+      line-height: 1.45;
+      overflow-x: auto;
+      white-space: pre;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+    }
+    pre.solution-board {
+      border-color: #86efac;
+      background: #f0fdf4;
+      color: #14532d;
+    }
+
+    .card-controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--primary-light); }
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-secondary:hover { background: #e2e8f0; }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid #cbd5e1;
+    }
+    .btn-outline:hover { background: #f8fafc; }
+
+    .deduction-box {
+      margin-top: 16px;
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+    }
+    .deduction-box h4 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    .step-item {
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+    }
+    .step-badge {
+      background: #e2e8f0;
+      color: #1e293b;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-right: 6px;
+    }
+    .step-detail {
+      margin-left: 20px;
+      color: #334155;
+    }
+    .uniqueness-tag {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #cbd5e1;
+      font-size: 0.85rem;
+      color: #166534;
+    }
+
+    @media print {
+      header.site-header, .filters-bar, .card-controls, .btn { display: none !important; }
+      .puzzle-card { page-break-inside: avoid; border: 1px solid #999; box-shadow: none; }
+      .solution-column { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>🧮 極小ヒント虫食い算傑作問題集</h1>
+      <p class="subtitle">
+        名作「孤独の7」をはじめ、極めて少ない初期ヒント（0個〜2個）から論理的推論だけで答えが一意に確定する珠玉の筆算覆面算集
+      </p>
+      <div class="stats-bar">
+        <div class="stat-chip">総問題数: <strong>26</strong> 問</div>
+        <div class="stat-chip">割算: <strong>10</strong> 問</div>
+        <div class="stat-chip">掛算: <strong>5</strong> 問</div>
+        <div class="stat-chip">足算: <strong>5</strong> 問</div>
+        <div class="stat-chip">引算: <strong>6</strong> 問</div>
+        <div class="stat-chip">全問 Z3 数学的一意性証明済</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="filters-bar">
+      <span>絞り込み:</span>
+      <button class="filter-btn active" onclick="filterCategory('all', this)">すべて表示</button>
+      <button class="filter-btn" onclick="filterCategory('division', this)">割算 (除算)</button>
+      <button class="filter-btn" onclick="filterCategory('multiplication', this)">掛算 (乗算)</button>
+      <button class="filter-btn" onclick="filterCategory('addition', this)">足算 (加算)</button>
+      <button class="filter-btn" onclick="filterCategory('subtraction', this)">引算 (減算)</button>
+      <button class="filter-btn print-btn" onclick="window.print()">🖨️ 印刷用問題用紙</button>
+    </div>
+
+    <div class="puzzle-list">
+      
+        <div class="puzzle-card" id="puzzle-DIV-001" data-op="division" data-stars="5">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-001</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★★★ 伝説級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">E・F・オドリングの不朽の名作『孤独の7』</h3>
+          <p class="puzzle-desc">1922年に発表された数学パズル史上の最高傑作。提示された数字は商の「7」ただ1つのみで、全32個の空欄が純粋な論理で一意に確定します。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">               □ 7 □ □ □
+      ┌─────────────────
+□ □ □ │ □ □ □ □ □ □ □ □
+         □ □ □ □
+        ─────────
+             □ □ □
+             □ □ □
+            ───────
+             □ □ □ □
+               □ □ □
+              ───────
+                 □ □ □ □
+                 □ □ □ □
+                ─────────
+                       0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">               9 7 8 0 9
+      ┌─────────────────
+1 2 4 │ 1 2 1 2 8 3 1 6
+         1 1 1 6
+        ─────────
+             9 6 8
+             8 6 8
+            ───────
+             1 0 0 3
+               9 9 2
+              ───────
+                 1 1 1 6
+                 1 1 1 6
+                ─────────
+                       0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-001')" id="btn-sol-DIV-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-001')" id="btn-hint-DIV-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>二重桁下げによる商の0の確定</strong> (商の十の位): 第4回目の引き算において、上から一度に2桁下りてきている（11では割れず1116で割っている）。
+              <div class="step-detail">➜ 確定: <code>商の十位 = 0</code> (通常の筆算では1桁ずつ下ろしますが、割れない場合は商に0を立てて次の桁を下ろすため、十位は0しかあり得ません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>商の7と部分積の桁数による除数の絞り込み</strong> (除数の百の位・商の万位と一位): 除数(3桁)×7が3桁である一方、商の万位と一位による積は4桁になっている。
+              <div class="step-detail">➜ 確定: <code>除数の百位 = 1、商の万位・一位 ∈ {8, 9}</code> (もし除数の百位が2以上なら 200×7=1400 (4桁) となり矛盾。よって除数は1□□。また7倍で3桁なのに万位・一位で4桁になるため、万位・一位は8または9です。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 3</span>
+              <strong>引き算の残り桁数からの除数・商の確定</strong> (除数全体および商全体): 4桁から3桁を引いた残りが2桁下がり、商の百位の積(3桁)との整合性を検証する。
+              <div class="step-detail">➜ 確定: <code>除数 = 124, 商 = 97809, 被除数 = 12,128,316</code> (124×8=992 (3桁), 124×9=1116 (4桁), 124×7=868 (3桁) となり、すべての段の桁数・引き算条件が完全に合致します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-002" data-op="division" data-stars="4">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-002</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の7・第二章「千位の孤独」</h3>
+          <p class="puzzle-desc">商の先頭（千の位）に「7」だけが残された割り算。4桁商（7□0□）の構造から除数124が一意に特定されます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">             7 □ □ □
+      ┌─────────────
+□ □ □ │ □ □ □ □ □ □
+         □ □ □
+        ───────
+         □ □ □ □
+           □ □ □
+          ───────
+             □ □ □ □
+             □ □ □ □
+            ─────────
+                   0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-002" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">             7 8 0 9
+      ┌─────────────
+1 2 4 │ 9 6 8 3 1 6
+         8 6 8
+        ───────
+         1 0 0 3
+           9 9 2
+          ───────
+             1 1 1 6
+             1 1 1 6
+            ─────────
+                   0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-002')" id="btn-sol-DIV-002">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-002')" id="btn-hint-DIV-002">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-002')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-002" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>先頭積の桁数</strong> (除数の範囲): 除数(3桁)×7が3桁(□□□)であるため、除数は 100〜142 に限定される。
+              <div class="step-detail">➜ 確定: <code>除数 ∈ [100, 142]</code> (143×7 = 1001 (4桁) となるため、3桁に収まる上限は142です。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>二段目の4桁積と二重桁下げ</strong> (商の百の位・十の位): 商の百位×除数は3桁だが、末尾の一の位×除数は4桁。途中に二重桁下げがあるため十位は0。
+              <div class="step-detail">➜ 確定: <code>商 = 7809, 除数 = 124</code> (商の十位が0で一の位が9となり、968,316 ÷ 124 = 7809 が唯一の解となります。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-003" data-op="division" data-stars="4">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-003</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の7・第三章「十位の孤独」</h3>
+          <p class="puzzle-desc">商が4桁（□07□）で、十の位にのみ「7」が置かれた割り算。7倍した積の桁数と末尾の4桁積の連携が鍵です。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">               □ □ 7 □
+      ┌───────────────
+□ □ □ │ □ □ □ □ □ □ □
+           □ □ □
+          ───────
+               □ □ □
+               □ □ □
+              ───────
+               □ □ □ □
+               □ □ □ □
+              ─────────
+                     0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-003" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">               8 0 7 9
+      ┌───────────────
+1 2 4 │ 1 0 0 1 7 9 6
+           9 9 2
+          ───────
+               9 7 9
+               8 6 8
+              ───────
+               1 1 1 6
+               1 1 1 6
+              ─────────
+                     0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-003')" id="btn-sol-DIV-003">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-003')" id="btn-hint-DIV-003">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-003')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-003" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>商の十位の7と二重桁下げ</strong> (百の位の0と除数): 最初の引き算後に2桁下りているため百位は0。十位の7による積は3桁(□□□)。
+              <div class="step-detail">➜ 確定: <code>商 = 8079, 除数 = 124</code> (1001796 ÷ 124 = 8079。7倍で868、末尾の9倍で1116となり、すべての段の桁数が合致。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-004" data-op="division" data-stars="4">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-004</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の8・割り算篇「千位の8」</h3>
+          <p class="puzzle-desc">商の千の位に「8」が1つだけ書かれた割り算。8倍で3桁、末尾の9倍で4桁という極小マージンを突きます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">               8 □ □ □
+      ┌───────────────
+□ □ □ │ □ □ □ □ □ □ □
+           □ □ □
+          ───────
+           □ □ □ □
+             □ □ □
+            ───────
+               □ □ □ □
+               □ □ □ □
+              ─────────
+                     0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-004" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">               8 8 0 9
+      ┌───────────────
+1 2 4 │ 1 0 9 2 3 1 6
+           9 9 2
+          ───────
+           1 0 0 3
+             9 9 2
+            ───────
+               1 1 1 6
+               1 1 1 6
+              ─────────
+                     0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-004')" id="btn-sol-DIV-004">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-004')" id="btn-hint-DIV-004">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-004')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-004" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>8倍して3桁になる除数の範囲</strong> (除数の上限): 除数(3桁)×8が3桁(□□□)なので、除数は最大でも 124。
+              <div class="step-detail">➜ 確定: <code>除数 ≤ 124 (125×8=1000)</code> (125×8=1000で4桁になるため、除数は124以下でなければなりません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>末尾の一の位による4桁積</strong> (除数の下限と一意確定): 末尾の商×除数は4桁(1000以上)。124×9=1116のみが成立可能。
+              <div class="step-detail">➜ 確定: <code>除数 = 124, 商 = 8809</code> (被除数は 1,092,316 と一意に決まります。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-005" data-op="division" data-stars="4">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-005</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の8・割り算篇「百位の8」</h3>
+          <p class="puzzle-desc">商の百の位に「8」がただ1つ。先頭積が4桁、二段目が3桁、末尾が4桁という非対称性が解を1つに縛ります。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">               □ 8 □ □
+      ┌───────────────
+□ □ □ │ □ □ □ □ □ □ □
+         □ □ □ □
+        ─────────
+           □ □ □ □
+             □ □ □
+            ───────
+               □ □ □ □
+               □ □ □ □
+              ─────────
+                     0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-005" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">               9 8 0 9
+      ┌───────────────
+1 2 4 │ 1 2 1 6 3 1 6
+         1 1 1 6
+        ─────────
+           1 0 0 3
+             9 9 2
+            ───────
+               1 1 1 6
+               1 1 1 6
+              ─────────
+                     0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-005')" id="btn-sol-DIV-005">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-005')" id="btn-hint-DIV-005">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-005')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-005" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>先頭の4桁積と百位の3桁積</strong> (商の千位と百位): 百位の8による積は3桁、千位による積は4桁。千位は9しかあり得ない。
+              <div class="step-detail">➜ 確定: <code>商の千位 = 9, 除数 = 124</code> (1216316 ÷ 124 = 9809 が唯一適合します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-006" data-op="division" data-stars="4">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-006</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の8・割り算篇「一位の8」</h3>
+          <p class="puzzle-desc">商の末尾（一の位）に「8」だけが与えられた問題。商は9808、除数は124に確定。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">               □ □ □ 8
+      ┌───────────────
+□ □ □ │ □ □ □ □ □ □ □
+         □ □ □ □
+        ─────────
+           □ □ □ □
+             □ □ □
+            ───────
+                 □ □ □
+                 □ □ □
+                ───────
+                     0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-006" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">               9 8 0 8
+      ┌───────────────
+1 2 4 │ 1 2 1 6 1 9 2
+         1 1 1 6
+        ─────────
+           1 0 0 1
+             9 9 2
+            ───────
+                 9 9 2
+                 9 9 2
+                ───────
+                     0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-006')" id="btn-sol-DIV-006">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-006')" id="btn-hint-DIV-006">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-006')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-006" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>末尾8による割り切れと除数</strong> (最後の引き算): 最後は除数×8でちょうど割り切れて余り0になる。積の桁数は3桁(□□□)。
+              <div class="step-detail">➜ 確定: <code>除数 = 124, 商 = 9808</code> (1,216,192 ÷ 124 = 9808。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-007" data-op="division" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-007</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の8・手軽な2桁商「112の妙技」</h3>
+          <p class="puzzle-desc">4桁÷3桁＝2桁（8□）のコンパクトな割り算。商の十位「8」だけで全体が美しく解けます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">             8 □
+      ┌─────────
+□ □ □ │ □ □ □ □
+         □ □ □
+        ───────
+         □ □ □ □
+         □ □ □ □
+        ─────────
+               0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-007" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">             8 9
+      ┌─────────
+1 1 2 │ 9 9 6 8
+         8 9 6
+        ───────
+         1 0 0 8
+         1 0 0 8
+        ─────────
+               0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-007')" id="btn-sol-DIV-007">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-007')" id="btn-hint-DIV-007">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-007')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-007" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>8倍して3桁、次の商で4桁</strong> (除数の範囲): 除数×8が3桁(□□□)なので除数≤124。一方、一の位を掛けると4桁(□□□□)になるため一の位は9、かつ除数×9≥1000。
+              <div class="step-detail">➜ 確定: <code>除数 ∈ [112, 124]</code> (1000 ÷ 9 = 111.1... より除数は112以上。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>被除数の4桁制約からの確定</strong> (除数と被除数): 被除数 D = 除数 × 89 が4桁(≤ 9999)。112 × 89 = 9968 のみが適合！
+              <div class="step-detail">➜ 確定: <code>112 × 89 = 9968</code> (113 × 89 = 10057 で5桁になってしまうため、112しか許されません。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-008" data-op="division" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-008</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の9「ゾロ目の小宇宙」</h3>
+          <p class="puzzle-desc">商の一の位に「9」だけが提示された、初学者にも解きやすい2桁÷2桁の割り算覆面算。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">           □ 9
+    ┌─────────
+□ □ │ □ □ □ □
+         □ □
+        ─────
+           □ □
+           □ □
+          ─────
+             0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-008" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">           9 9
+    ┌─────────
+1 1 │ 1 0 8 9
+         9 9
+        ─────
+           9 9
+           9 9
+          ─────
+             0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-008')" id="btn-sol-DIV-008">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-008')" id="btn-hint-DIV-008">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-008')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-008" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>2桁の除数と2桁の積</strong> (除数の特定): 除数(2桁)×9が2桁(□□)なので、除数は最大でも 11 (11×9=99)。2桁なので除数は10か11。
+              <div class="step-detail">➜ 確定: <code>除数 ∈ {10, 11}</code> (10×99=990 (3桁) に対し、被除数は4桁(□□□□)なので除数は11しかありません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>全体の完成</strong> (商と被除数): 11 × 99 = 1089。筆算の各段がすべて合致します。
+              <div class="step-detail">➜ 確定: <code>1089 ÷ 11 = 99</code> (一段目99、二段目99で余り0。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-009" data-op="division" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-009</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">孤独の7・除数篇「末尾の七」</h3>
+          <p class="puzzle-desc">除数の末尾（一の位）に「7」だけが示された割り算。除数□□7と商の0が織りなす整然たる論理。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">             □ □ □ □
+      ┌─────────────
+□ □ 7 │ □ □ □ □ □ □
+         □ □ □
+        ───────
+         □ □ □ □
+           □ □ □
+          ───────
+               □ □ □
+               □ □ □
+              ───────
+                   0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-009" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">             1 2 0 2
+      ┌─────────────
+4 9 7 │ 5 9 7 3 9 4
+         4 9 7
+        ───────
+         1 0 0 3
+           9 9 4
+          ───────
+               9 9 4
+               9 9 4
+              ───────
+                   0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-009')" id="btn-sol-DIV-009">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-009')" id="btn-hint-DIV-009">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-009')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-009" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>商の二重桁下げと各段の桁数</strong> (除数497の確定): 商の百位が2、十位が0。除数末尾の7と各段の引き算から497が一意に定まる。
+              <div class="step-detail">➜ 確定: <code>除数 = 497, 商 = 1202</code> (597,394 ÷ 497 = 1202。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-DIV-010" data-op="division" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">DIV-010</span>
+              <span class="op-badge badge-division">割り算 (除算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">奇跡の二文字「2と9のシンメトリー」</h3>
+          <p class="puzzle-desc">6桁÷3桁＝3桁。ヒントは除数末尾の「2」と商先頭の「9」の2文字のみ。驚くほど美しい対称解。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">               9 □ □
+      ┌─────────────
+□ □ 2 │ □ □ □ □ □ □
+           □ □ □
+          ───────
+           □ □ □ □
+             □ □ □
+            ───────
+               □ □ □
+               □ □ □
+              ───────
+                   0</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-DIV-010" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">               9 9 9
+      ┌─────────────
+1 0 2 │ 1 0 1 8 9 8
+           9 1 8
+          ───────
+           1 0 0 9
+             9 1 8
+            ───────
+               9 1 8
+               9 1 8
+              ───────
+                   0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('DIV-010')" id="btn-sol-DIV-010">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('DIV-010')" id="btn-hint-DIV-010">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('DIV-010')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-DIV-010" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>9倍して3桁になる除数</strong> (除数の確定): 除数(□□2) × 9 が3桁(≤999)なので、除数は ≤ 111。末尾が2なので 102 に即時確定！
+              <div class="step-detail">➜ 確定: <code>除数 = 102</code> (末尾2で111以下の3桁の整数は 102 しか存在しません！)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>商の全桁の特定</strong> (商の残り桁): 除数が102と決まれば、各段の4桁引き算を満たす商は 999 のみ。
+              <div class="step-detail">➜ 確定: <code>商 = 999, 被除数 = 101,898</code> (101898 ÷ 102 = 999。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-MUL-001" data-op="multiplication" data-stars="4">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">MUL-001</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="difficulty-stars">★★★★☆ 上級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">名作「孤独の8」掛け算</h3>
+          <p class="puzzle-desc">下平和夫『新数学事典』等にも取り上げられた乗算覆面算の金字塔。与えられた数字は乗数の十位「8」ただ1つ！</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □
+     × 8 □
+  ────────
+   □ □ □ □
+   □ □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-MUL-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 1 2
+     × 8 9
+  ────────
+   1 0 0 8
+   8 9 6  
+  ────────
+   9 9 6 8</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('MUL-001')" id="btn-sol-MUL-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('MUL-001')" id="btn-hint-MUL-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('MUL-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-MUL-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>部分積の桁数の違い</strong> (乗数の一の位): 被乗数(3桁)×8 は3桁なのに、被乗数×(一の位) は4桁になっている。
+              <div class="step-detail">➜ 確定: <code>乗数の一の位 = 9</code> (8倍で3桁なのに、それより大きい4桁になる数字は 9 しかありません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>被乗数の範囲の限定</strong> (被乗数の上限と下限): 被乗数×8 ≤ 999 より 被乗数 ≤ 124。一方、被乗数×9 ≥ 1000 より 被乗数 ≥ 112。
+              <div class="step-detail">➜ 確定: <code>被乗数 ∈ [112, 124]</code> (1000 ÷ 9 = 111.1... より、112以上です。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 3</span>
+              <strong>合計積が4桁であることからの確定</strong> (被乗数の一意確定): 全体の積 (被乗数 × 89) が4桁(≤ 9999)である。
+              <div class="step-detail">➜ 確定: <code>被乗数 = 112 (112 × 89 = 9968)</code> (113 × 89 = 10057 (5桁) となりオーバー！ したがって112しかあり得ません。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-MUL-002" data-op="multiplication" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">MUL-002</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">二つのヒント「九十九の壁」</h3>
+          <p class="puzzle-desc">被乗数末尾の「2」と乗数の先頭「9」の2ヒント。積が10000を超えて5桁になる境界条件を利用した鮮やかな名作。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □ 2
+       × 9 □
+  ──────────
+       □ □ □
+     □ □ □  
+  ──────────
+   □ □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-MUL-002" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 0 2
+       × 9 9
+  ──────────
+       9 1 8
+     9 1 8  
+  ──────────
+   1 0 0 9 8</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('MUL-002')" id="btn-sol-MUL-002">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('MUL-002')" id="btn-hint-MUL-002">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('MUL-002')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-MUL-002" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>部分積の桁数と被乗数</strong> (被乗数の確定): 被乗数は末尾2(□□2)。被乗数×9が3桁なので被乗数≤111。よって被乗数は102に即確定！
+              <div class="step-detail">➜ 確定: <code>被乗数 = 102</code> (111以下の末尾2の3桁数は102しかありません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>積が5桁になる条件</strong> (乗数の確定): 102 × B ≥ 10000 (5桁) より B ≥ 98.03。Bは9□なので 99 しかない！
+              <div class="step-detail">➜ 確定: <code>乗数 = 99, 総積 = 10,098</code> (102 × 99 = 10,098。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-MUL-003" data-op="multiplication" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">MUL-003</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">2桁乗算の孤独な乗数「91」</h3>
+          <p class="puzzle-desc">乗数が「91」と明かされているだけの2桁×2桁虫食い算。部分積と総積の桁数だけで被乗数11が確定します。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □
+     × 9 1
+  ────────
+       □ □
+     □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-MUL-003" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 1
+     × 9 1
+  ────────
+       1 1
+     9 9  
+  ────────
+   1 0 0 1</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('MUL-003')" id="btn-sol-MUL-003">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('MUL-003')" id="btn-hint-MUL-003">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('MUL-003')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-MUL-003" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>部分積の桁数から被乗数の上限</strong> (被乗数の上限): 被乗数 × 9 が2桁(≤ 99)なので、被乗数は 11 以下。
+              <div class="step-detail">➜ 確定: <code>被乗数 ≤ 11</code> (12×9 = 108 で3桁になってしまいます。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>総積の4桁から確定</strong> (被乗数の下限と確定): 被乗数 × 91 が4桁(≥ 1000)なので、被乗数 ≥ 11。したがって被乗数は11！
+              <div class="step-detail">➜ 確定: <code>11 × 91 = 1001</code> (10 × 91 = 910 で3桁なので、11しかあり得ません。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-MUL-004" data-op="multiplication" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">MUL-004</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">末尾2と80台の乗算</h3>
+          <p class="puzzle-desc">被乗数が「□2」、乗数が「8□」。部分積の1段目が3桁、2段目が2桁という反転から解が一意に決まります。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ 2
+     × 8 □
+  ────────
+     □ □ □
+     □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-MUL-004" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 2
+     × 8 9
+  ────────
+     1 0 8
+     9 6  
+  ────────
+   1 0 6 8</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('MUL-004')" id="btn-sol-MUL-004">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('MUL-004')" id="btn-hint-MUL-004">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('MUL-004')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-MUL-004" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>2段目の2桁積から被乗数の確定</strong> (被乗数): 被乗数(□2) × 8 が2桁(≤99)なので被乗数は12以下。末尾2より被乗数は12に確定！
+              <div class="step-detail">➜ 確定: <code>被乗数 = 12</code> (22×8 = 176 で3桁になるため、12しかありません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>1段目の3桁積から乗数の確定</strong> (乗数の一の位): 12 × (一の位) が3桁(≥100)になるためには、一の位は 9 (12×9=108) のみ。
+              <div class="step-detail">➜ 確定: <code>乗数 = 89, 総積 = 1068</code> (12 × 89 = 1068。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-MUL-005" data-op="multiplication" data-stars="1">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">MUL-005</span>
+              <span class="op-badge badge-multiplication">掛け算 (乗算)</span>
+              <span class="difficulty-stars">★☆☆☆☆ 初級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">ゾロ目乗算「12の魔法」</h3>
+          <p class="puzzle-desc">被乗数が「12」と分かっている基本問題。部分積が両方とも3桁で総積が4桁になる条件から99が導かれます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       1 2
+     × □ □
+  ────────
+     □ □ □
+   □ □ □  
+  ────────
+   □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-MUL-005" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       1 2
+     × 9 9
+  ────────
+     1 0 8
+   1 0 8  
+  ────────
+   1 1 8 8</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('MUL-005')" id="btn-sol-MUL-005">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('MUL-005')" id="btn-hint-MUL-005">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('MUL-005')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-MUL-005" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>部分積が3桁になる乗数の桁</strong> (乗数の各桁): 12に掛けて3桁(100以上)になる数字は 9 (12×9=108) のみ。
+              <div class="step-detail">➜ 確定: <code>乗数 = 99</code> (12×8=96 (2桁) なので、各桁とも9でなければなりません。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-ADD-001" data-op="addition" data-stars="1">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">ADD-001</span>
+              <span class="op-badge badge-addition">足し算 (加算)</span>
+              <span class="difficulty-stars">★☆☆☆☆ 初級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「孤独の1」足し算</h3>
+          <p class="puzzle-desc">3桁＋1桁＝4桁。足す数が「1」としか書かれていないのに、999＋1＝1000が一意に確定する究極のミニマル足し算。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □ □
+         + 1
+  ──────────
+     □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-ADD-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       9 9 9
+         + 1
+  ──────────
+     1 0 0 0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('ADD-001')" id="btn-sol-ADD-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('ADD-001')" id="btn-hint-ADD-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('ADD-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-ADD-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>4桁への繰り上がり境界</strong> (1つ目の数): 3桁の数に 1 を足して4桁(1000以上)になる数は、3桁の最大数 999 しかない！
+              <div class="step-detail">➜ 確定: <code>1つ目の数 = 999, 和 = 1000</code> (998 + 1 = 999 (3桁) なので、999以外に解は存在しません。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-ADD-002" data-op="addition" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">ADD-002</span>
+              <span class="op-badge badge-addition">足し算 (加算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「千への到達（0と1の手がかり）」</h3>
+          <p class="puzzle-desc">1つ目の数が「□01」、2つ目の数が「□□」、和が「□□□□」。わずか2個のヒントから1000への到達が一意に定まります。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ 0 1
+       + □ □
+  ──────────
+     □ □ □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-ADD-002" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       9 0 1
+       + 9 9
+  ──────────
+     1 0 0 0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('ADD-002')" id="btn-sol-ADD-002">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('ADD-002')" id="btn-hint-ADD-002">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('ADD-002')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-ADD-002" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>最大値からの挟み撃ち</strong> (両方の数): □01 の最大値は 901。2桁の最大値は 99。901 + 99 = 1000 でちょうど4桁の最小値に届く！
+              <div class="step-detail">➜ 確定: <code>901 + 99 = 1000</code> (もし1つ目が801以下、あるいは2つ目が98以下なら和が999以下になり4桁になり得ません。よって 901 + 99 = 1000 が唯一解です。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-ADD-003" data-op="addition" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">ADD-003</span>
+              <span class="op-badge badge-addition">足し算 (加算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「九十八の残響」</h3>
+          <p class="puzzle-desc">3桁＋2桁＝□□98。和の下2桁が「98」であることだけを手がかりに、すべての空欄が確定するエレガントな問題。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □ □
+       + □ □
+  ──────────
+     □ □ 9 8</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-ADD-003" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       9 9 9
+       + 9 9
+  ──────────
+     1 0 9 8</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('ADD-003')" id="btn-sol-ADD-003">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('ADD-003')" id="btn-hint-ADD-003">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('ADD-003')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-ADD-003" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>3桁＋2桁の取り得る最大値</strong> (和の全貌): 3桁最大999、2桁最大99。和の最大値は 999 + 99 = 1098。和は4桁で末尾98なので 1098 確定！
+              <div class="step-detail">➜ 確定: <code>和 = 1098</code> (1098以下の4桁で末尾98の数は 1098 しかありません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>加数の特定</strong> (2つの数): 最大値 1098 を達成する組み合わせは 999 + 99 のみ。
+              <div class="step-detail">➜ 確定: <code>999 + 99 = 1098</code> (どちらかが1でも小さければ1098に届きません。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-ADD-004" data-op="addition" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">ADD-004</span>
+              <span class="op-badge badge-addition">足し算 (加算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">繰り上がり連鎖「909の加算」</h3>
+          <p class="puzzle-desc">1つ目の十位が「0」、和の一位が「8」。繰り上がりの連鎖により 909 + 99 = 1008 が一意に決まります。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ 0 □
+       + □ □
+  ──────────
+     □ □ □ 8</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-ADD-004" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       9 0 9
+       + 9 9
+  ──────────
+     1 0 0 8</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('ADD-004')" id="btn-sol-ADD-004">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('ADD-004')" id="btn-hint-ADD-004">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('ADD-004')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-ADD-004" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>一の位の繰り上がりと十の位の0</strong> (全体の復元): 一の位の和が末尾8で、十の位が0。4桁に繰り上がる条件から 909 + 99 = 1008 に一意決定。
+              <div class="step-detail">➜ 確定: <code>909 + 99 = 1008</code> (計算の一致を完全に満たす唯一の解です。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-ADD-005" data-op="addition" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">ADD-005</span>
+              <span class="op-badge badge-addition">足し算 (加算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「千九十の壁」</h3>
+          <p class="puzzle-desc">3桁＋2桁＝□□90。1つ目の末尾が「1」という2つのヒントから、991＋99＝1090が導かれます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">       □ □ 1
+       + □ □
+  ──────────
+     □ □ 9 □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-ADD-005" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">       9 9 1
+       + 9 9
+  ──────────
+     1 0 9 0</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('ADD-005')" id="btn-sol-ADD-005">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('ADD-005')" id="btn-hint-ADD-005">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('ADD-005')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-ADD-005" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>末尾1と繰り上がり</strong> (2つ目の数の一の位): 1 + □ = 10 (末尾0) より、2つ目の数の一位は 9。
+              <div class="step-detail">➜ 確定: <code>2つ目の一位 = 9, 和 = 1090</code> (991 + 99 = 1090。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-SUB-001" data-op="subtraction" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">SUB-001</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「孤独の1」引き算（至高の差1）</h3>
+          <p class="puzzle-desc">4桁－3桁＝1。答えの欄に「1」がポツンと置かれているだけなのに、1000－999＝1が必然として導かれます。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □ □
+     - □ □ □
+  ──────────
+           1</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-SUB-001" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 0 0
+     - 9 9 9
+  ──────────
+           1</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('SUB-001')" id="btn-sol-SUB-001">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('SUB-001')" id="btn-hint-SUB-001">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('SUB-001')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-SUB-001" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>4桁と3桁の差が1になる条件</strong> (引かれる数と引く数): 引かれる数(4桁) ≥ 1000。引く数(3桁) ≤ 999。差が1になるのは最小4桁と最大3桁の境界のみ！
+              <div class="step-detail">➜ 確定: <code>1000 - 999 = 1</code> (1001 - 3桁 は必ず2以上になり、999以下の引く数で差が1になるのは 1000 - 999 のみです。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-SUB-002" data-op="subtraction" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">SUB-002</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「孤独の1」引き算（末尾一の宿命）</h3>
+          <p class="puzzle-desc">4桁－3桁＝1桁。引く数が「□□1」であることだけが与えられた、極めて美しい引き算覆面算。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □ □
+     - □ □ 1
+  ──────────
+           □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-SUB-002" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 0 0
+     - 9 9 1
+  ──────────
+           9</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('SUB-002')" id="btn-sol-SUB-002">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('SUB-002')" id="btn-hint-SUB-002">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('SUB-002')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-SUB-002" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>4桁－3桁＝1桁の範囲の狭さ</strong> (引く数の百位と十位): 引かれる数 ≥ 1000、差 ≤ 9。したがって引く数は 1000 - 9 = 991 以上でなければならない！
+              <div class="step-detail">➜ 確定: <code>引く数 ≥ 991</code> (4桁から3桁を引いて1桁にするには、引く数は991〜999の範囲に限定されます。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>末尾1との合致</strong> (引く数の確定): 991〜999の中で末尾が1の数は 991 のみ！ よって引く数は 991 に確定。
+              <div class="step-detail">➜ 確定: <code>引く数 = 991, 引かれる数 = 1000, 差 = 9</code> (991に1桁(1〜9)を足して4桁(1000以上)になるのは 991 + 9 = 1000 のみです。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-SUB-003" data-op="subtraction" data-stars="2">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">SUB-003</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="difficulty-stars">★★☆☆☆ 初中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>1</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「孤独の8」引き算</h3>
+          <p class="puzzle-desc">4桁－3桁＝1桁。引かれる数の末尾が「8（□□□8）」とだけ提示された驚異の一意解パズル。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □ 8
+     - □ □ □
+  ──────────
+           □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-SUB-003" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 0 8
+     - 9 9 9
+  ──────────
+           9</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('SUB-003')" id="btn-sol-SUB-003">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('SUB-003')" id="btn-hint-SUB-003">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('SUB-003')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-SUB-003" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>引かれる数の上限</strong> (引かれる数): 引く数(3桁) ≤ 999、差(1桁) ≤ 9 より、引かれる数 ≤ 999 + 9 = 1008。
+              <div class="step-detail">➜ 確定: <code>引かれる数 ≤ 1008</code> (4桁で末尾8かつ1008以下の数は、なんと 1008 そのものしかありません！)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>引く数と差の確定</strong> (引く数と差): 1008 － (3桁) ＝ (1桁) を満たす3桁は 999 のみ（1008 - 999 = 9）。
+              <div class="step-detail">➜ 確定: <code>1008 - 999 = 9</code> (引く数が998以下だと差が10以上（2桁）になってしまいます。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-SUB-004" data-op="subtraction" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">SUB-004</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">繰り下がり二重連鎖「901の減算」</h3>
+          <p class="puzzle-desc">4桁－□01＝□□。引く数の下2桁が「01」という情報から、千からの引き算1000－901＝99が確定します。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □ □
+     - □ 0 1
+  ──────────
+         □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-SUB-004" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 0 0
+     - 9 0 1
+  ──────────
+         9 9</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('SUB-004')" id="btn-sol-SUB-004">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('SUB-004')" id="btn-hint-SUB-004">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('SUB-004')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-SUB-004" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>引く数と差の桁数</strong> (引く数の百位): 4桁から引いて2桁(≤99)になるためには、引く数は 1000 - 99 = 901 以上。よって引く数は 901 に確定！
+              <div class="step-detail">➜ 確定: <code>引く数 = 901</code> (百位は9しかあり得ません。)</div>
+            </div>
+            
+
+            <div class="step-item">
+              <span class="step-badge">Step 2</span>
+              <strong>引かれる数と差の確定</strong> (引かれる数と差): 901に2桁(最大99)を足して4桁(1000以上)にするには 901 + 99 = 1000 しかない！
+              <div class="step-detail">➜ 確定: <code>1000 - 901 = 99</code> (すべて一意に確定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-SUB-005" data-op="subtraction" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">SUB-005</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「九十九の壁（減算篇）」</h3>
+          <p class="puzzle-desc">引かれる数の十位が「9」、引く数の末尾が「1」。差が2桁という条件がパズルを縛ります。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ 9 □
+     - □ □ 1
+  ──────────
+         □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-SUB-005" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 9 0
+     - 9 9 1
+  ──────────
+         9 9</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('SUB-005')" id="btn-sol-SUB-005">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('SUB-005')" id="btn-hint-SUB-005">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('SUB-005')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-SUB-005" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>一の位の繰り下がりと十の位</strong> (全体の特定): 4桁-3桁=2桁で、引かれる数が□□9□、引く数が□□1を満たす整数解は 1090 - 991 = 99 のみ。
+              <div class="step-detail">➜ 確定: <code>1090 - 991 = 99</code> (1090 - 991 = 99。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="puzzle-card" id="puzzle-SUB-006" data-op="subtraction" data-stars="3">
+          <div class="card-header">
+            <div class="header-left">
+              <span class="puzzle-id">SUB-006</span>
+              <span class="op-badge badge-subtraction">引き算 (減算)</span>
+              <span class="difficulty-stars">★★★☆☆ 中級</span>
+            </div>
+            <div class="header-right">
+              <span class="hint-pill">初期ヒント: <strong>2</strong> 個</span>
+            </div>
+          </div>
+          
+          <h3 class="puzzle-title">「千八からの減算」</h3>
+          <p class="puzzle-desc">引かれる数の末尾が「8」、引く数の十位が「0」。差が2桁（99）になる唯一の組み合わせ。</p>
+
+          <div class="board-container">
+            <div class="board-column">
+              <div class="board-label">【問題盤面】</div>
+              <pre class="mushikui-board problem-board">     □ □ □ 8
+     - □ 0 □
+  ──────────
+         □ □</pre>
+            </div>
+            <div class="board-column solution-column" id="sol-col-SUB-006" style="display: none;">
+              <div class="board-label solution-label">【正解盤面】</div>
+              <pre class="mushikui-board solution-board">     1 0 0 8
+     - 9 0 9
+  ──────────
+         9 9</pre>
+            </div>
+          </div>
+
+          <div class="card-controls">
+            <button class="btn btn-primary" onclick="toggleSolution('SUB-006')" id="btn-sol-SUB-006">
+              💡 解答・正解を表示
+            </button>
+            <button class="btn btn-secondary" onclick="toggleHints('SUB-006')" id="btn-hint-SUB-006">
+              🔍 論理的ヒントを展開
+            </button>
+            <button class="btn btn-outline" onclick="copyPuzzleText('SUB-006')">
+              📋 テキストをコピー
+            </button>
+          </div>
+
+          <div class="deduction-box" id="hints-SUB-006" style="display: none;">
+            <h4>《論理的解法ステップ》</h4>
+            <div class="steps-list">
+              
+            <div class="step-item">
+              <span class="step-badge">Step 1</span>
+              <strong>差が2桁になる境界条件</strong> (引く数と引かれる数): 引かれる数が1008で、引く数が909のとき、差はちょうど99。
+              <div class="step-detail">➜ 確定: <code>1008 - 909 = 99</code> (一意に確定します。)</div>
+            </div>
+            
+            </div>
+            <div class="uniqueness-tag">
+              ✅ <strong>Z3 SMT 数学的一意性証明済み</strong>: 厳密な制約充足探索により解が唯一であることが検証されています。
+            </div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+
+  <script>
+    function toggleSolution(id) {
+      const sol = document.getElementById('sol-col-' + id);
+      const btn = document.getElementById('btn-sol-' + id);
+      if (sol.style.display === 'none') {
+        sol.style.display = 'block';
+        btn.innerText = '🙈 解答を隠す';
+        btn.style.background = '#059669';
+      } else {
+        sol.style.display = 'none';
+        btn.innerText = '💡 解答・正解を表示';
+        btn.style.background = '';
+      }
+    }
+
+    function toggleHints(id) {
+      const hint = document.getElementById('hints-' + id);
+      const btn = document.getElementById('btn-hint-' + id);
+      if (hint.style.display === 'none') {
+        hint.style.display = 'block';
+        btn.innerText = '🔼 ヒントを閉じる';
+      } else {
+        hint.style.display = 'none';
+        btn.innerText = '🔍 論理的ヒントを展開';
+      }
+    }
+
+    function copyPuzzleText(id) {
+      const card = document.getElementById('puzzle-' + id);
+      const pre = card.querySelector('.problem-board');
+      navigator.clipboard.writeText(pre.innerText).then(() => {
+        alert('【問題 ' + id + '】の盤面テキストをクリップボードにコピーしました！');
+      });
+    }
+
+    function filterCategory(op, el) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      const cards = document.querySelectorAll('.puzzle-card');
+      cards.forEach(c => {
+        if (op === 'all' || c.getAttribute('data-op') === op) {
+          c.style.display = 'block';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
