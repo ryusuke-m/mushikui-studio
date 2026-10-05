@@ -42,7 +42,7 @@
 
 ### ステップ 2: ローカルから GitHub へ push する
 
-ターミナル（本プロジェクトのディレクトリ `/home/administrator/Documents/antigravity/fearless-hawking`）で、以下のコマンドを実行します：
+ターミナル（本プロジェクトのルートディレクトリ）で、以下のコマンドを実行します：
 
 ```bash
 # 1. 作成した GitHub リポジトリを origin として追加
