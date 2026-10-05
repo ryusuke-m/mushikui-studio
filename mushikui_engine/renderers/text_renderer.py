@@ -49,13 +49,17 @@ class TextRenderer:
         md.append("")
 
         if puzzle.deduction_steps:
-            md.append("#### 《解法の糸口・論理的ヒント》")
+            md.append("<details>")
+            md.append("<summary>🔍 <strong>解法の糸口・論理的ヒント（クリックで展開）</strong></summary>")
+            md.append("")
             for step in puzzle.deduction_steps:
                 md.append(f"1. **{step.title}** ({step.target_part})")
                 md.append(f"   - **着眼点**: {step.deduction}")
                 md.append(f"   - **確定する数字**: `{step.revealed_value}`")
                 if step.explanation:
                     md.append(f"   - **理由**: {step.explanation}")
+            md.append("")
+            md.append("</details>")
             md.append("")
 
         if include_solution:

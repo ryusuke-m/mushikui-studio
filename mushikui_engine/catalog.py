@@ -62,7 +62,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_4,
         d=124, q=7809, D=968316,
         clues={'q': {0: 7}},
-        summary="商の先頭（千の位）に「7」だけが残された割り算。4桁商（7□0□）の構造から除数124が一意に特定されます。",
+        summary="商の先頭（千の位）に「7」だけが残された割り算。部分積の桁数の変化と途中の引き算構造から、除数と商が一意に特定されます。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -91,7 +91,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_4,
         d=124, q=8079, D=1001796,
         clues={'q': {2: 7}},
-        summary="商が4桁（□07□）で、十の位にのみ「7」が置かれた割り算。7倍した積の桁数と末尾の4桁積の連携が鍵です。",
+        summary="商の十の位にのみ「7」が置かれた割り算。7倍した積の桁数と、末尾に現れる部分積の桁数制約が織りなす連携から、隠された全貌を解き明かしてください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -112,7 +112,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_4,
         d=124, q=8809, D=1092316,
         clues={'q': {0: 8}},
-        summary="商の千の位に「8」が1つだけ書かれた割り算。8倍で3桁、末尾の9倍で4桁という極小マージンを突きます。",
+        summary="商の千の位に「8」が1つだけ書かれた割り算。8倍した部分積の桁数と、筆算各段の桁数制約が織りなす極小マージンを突きます。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -141,7 +141,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_4,
         d=124, q=9809, D=1216316,
         clues={'q': {1: 8}},
-        summary="商の百の位に「8」がただ1つ。先頭積が4桁、二段目が3桁、末尾が4桁という非対称性が解を1つに縛ります。",
+        summary="商の百の位に「8」がただ1つ。各段の部分積の桁数が生み出す非対称な制約から、解が唯一に絞り込まれます。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -162,7 +162,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_4,
         d=124, q=9808, D=1216192,
         clues={'q': {3: 8}},
-        summary="商の末尾（一の位）に「8」だけが与えられた問題。商は9808、除数は124に確定。",
+        summary="商の末尾（一の位）に「8」だけが与えられた問題。最後の引き算でちょうど割り切れる条件と各段の桁数バランスから、唯一の除数と商を導き出してください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -179,11 +179,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # DIV-007: 孤独の8（2桁商の割り算）
     puzzles.append(DivisionGenerator.create_puzzle(
         puzzle_id="DIV-007",
-        title="孤独の8・手軽な2桁商「112の妙技」",
+        title="孤独の8・手軽な2桁商「極小の除数」",
         difficulty=Difficulty.LEVEL_3,
         d=112, q=89, D=9968,
         clues={'q': {0: 8}},
-        summary="4桁÷3桁＝2桁（8□）のコンパクトな割り算。商の十位「8」だけで全体が美しく解けます。",
+        summary="4桁÷3桁＝2桁（8□）のコンパクトな割り算。商の十の位に置かれた「8」だけを手がかりに、除数と被除数を割り出す珠玉の短編作です。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -208,11 +208,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # DIV-008: 孤独の9（2桁÷2桁）
     puzzles.append(DivisionGenerator.create_puzzle(
         puzzle_id="DIV-008",
-        title="孤独の9「ゾロ目の小宇宙」",
+        title="孤独の9・入門篇「二桁の小宇宙」",
         difficulty=Difficulty.LEVEL_2,
         d=11, q=99, D=1089,
         clues={'q': {1: 9}},
-        summary="商の一の位に「9」だけが提示された、初学者にも解きやすい2桁÷2桁の割り算覆面算。",
+        summary="商の一の位に「9」だけが提示された、初学者にも解きやすい2桁÷2桁の割り算覆面算。各段の引き算の整合性から除数と商を導きましょう。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -241,7 +241,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_3,
         d=497, q=1202, D=597394,
         clues={'d': {2: 7}},
-        summary="除数の末尾（一の位）に「7」だけが示された割り算。除数□□7と商の0が織りなす整然たる論理。",
+        summary="除数の末尾（一の位）に「7」だけが示された割り算。除数□□7と途中の桁下がり構造から、整然たる論理で唯一の解が浮かび上がります。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -325,10 +325,10 @@ def get_curated_puzzles() -> List[Puzzle]:
         ]
     ))
 
-    # MUL-002: 二つのヒント「九十九の壁」
+    # MUL-002: 二つのヒント「万の境界線」
     puzzles.append(MultiplicationGenerator.create_puzzle(
         puzzle_id="MUL-002",
-        title="二つのヒント「九十九の壁」",
+        title="二つのヒント「万の境界線」",
         difficulty=Difficulty.LEVEL_3,
         A=102, B=99,
         clues={'A': {2: 2}, 'B': {0: 9}},
@@ -361,7 +361,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_2,
         A=11, B=91,
         clues={'B': {0: 9, 1: 1}},
-        summary="乗数が「91」と明かされているだけの2桁×2桁虫食い算。部分積と総積の桁数だけで被乗数11が確定します。",
+        summary="乗数が「91」と明かされている2桁×2桁の虫食い算。2段の部分積と総積の桁数バランスから、隠された被乗数を導き出してください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -415,11 +415,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # MUL-005: ミニマル乗算「12 × 99」
     puzzles.append(MultiplicationGenerator.create_puzzle(
         puzzle_id="MUL-005",
-        title="ゾロ目乗算「12の魔法」",
+        title="極小乗算「12の倍数」",
         difficulty=Difficulty.LEVEL_1,
         A=12, B=99,
         clues={'A': {0: 1, 1: 2}},
-        summary="被乗数が「12」と分かっている基本問題。部分積が両方とも3桁で総積が4桁になる条件から99が導かれます。",
+        summary="被乗数が「12」と分かっている基本問題。部分積が両方とも3桁で総積が4桁になる厳しい桁数条件を満たす乗数を探してください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -444,7 +444,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_1,
         operands=[999, 1],
         clues={'op_1': {0: 1}},
-        summary="3桁＋1桁＝4桁。足す数が「1」としか書かれていないのに、999＋1＝1000が一意に確定する究極のミニマル足し算。",
+        summary="3桁＋1桁＝4桁。足す数が「1」としか書かれていない盤面から、桁上がりの極限条件によって全空欄が一意に確定する究極のミニマル足し算。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -461,11 +461,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # ADD-002: 「千への到達」
     puzzles.append(AdditionGenerator.create_puzzle(
         puzzle_id="ADD-002",
-        title="「千への到達（0と1の手がかり）」",
+        title="繰り上がりの境界「0と1の手がかり」",
         difficulty=Difficulty.LEVEL_2,
         operands=[901, 99],
         clues={'op_0': {1: 0, 2: 1}},
-        summary="1つ目の数が「□01」、2つ目の数が「□□」、和が「□□□□」。わずか2個のヒントから1000への到達が一意に定まります。",
+        summary="1つ目の数が「□01」、2つ目の数が「□□」、和が「□□□□」。わずか2個のヒントと4桁への桁上がり条件から、すべての数が一意に定まります。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -511,11 +511,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # ADD-004: 繰り上がり連鎖「909の加算」
     puzzles.append(AdditionGenerator.create_puzzle(
         puzzle_id="ADD-004",
-        title="繰り上がり連鎖「909の加算」",
+        title="繰り上がりの連鎖「零と八の共鳴」",
         difficulty=Difficulty.LEVEL_2,
         operands=[909, 99],
         clues={'op_0': {1: 0}, 'sum': {3: 8}},
-        summary="1つ目の十位が「0」、和の一位が「8」。繰り上がりの連鎖により 909 + 99 = 1008 が一意に決まります。",
+        summary="3桁＋2桁＝4桁。1つ目の数の十の位が「0」、和の一の位が「8」というわずかな手がかりから、繰り上がりの連鎖を辿って式を復元してください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -532,11 +532,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # ADD-005: 1090の壁
     puzzles.append(AdditionGenerator.create_puzzle(
         puzzle_id="ADD-005",
-        title="「千九十の壁」",
+        title="和の制約「一と九の手がかり」",
         difficulty=Difficulty.LEVEL_2,
         operands=[991, 99],
         clues={'op_0': {2: 1}, 'sum': {2: 9}},
-        summary="3桁＋2桁＝□□90。1つ目の末尾が「1」という2つのヒントから、991＋99＝1090が導かれます。",
+        summary="3桁＋2桁＝4桁。1つ目の数の末尾が「1」、和の十の位が「9」という2つのヒントを手がかりに、繰り上がりの制約から解き明かしてください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -561,7 +561,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         difficulty=Difficulty.LEVEL_2,
         A=1000, B=999,
         clues={'diff': {0: 1}},
-        summary="4桁－3桁＝1。答えの欄に「1」がポツンと置かれているだけなのに、1000－999＝1が必然として導かれます。",
+        summary="4桁－3桁＝1。答えの欄に「1」がポツンと置かれているだけなのに、桁の境界条件によって引かれる数と引く数が必然として導かれます。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -636,11 +636,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # SUB-004: 繰り下がり二重連鎖
     puzzles.append(SubtractionGenerator.create_puzzle(
         puzzle_id="SUB-004",
-        title="繰り下がり二重連鎖「901の減算」",
+        title="繰り下がり二重連鎖「零一の減算」",
         difficulty=Difficulty.LEVEL_3,
         A=1000, B=901,
         clues={'B': {1: 0, 2: 1}},
-        summary="4桁－□01＝□□。引く数の下2桁が「01」という情報から、千からの引き算1000－901＝99が確定します。",
+        summary="4桁－□01＝□□。引く数の下2桁が「01」という手がかりと差が2桁という桁数制約から、すべての空欄を確定させてください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -665,11 +665,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # SUB-005: 99の壁（引き算）
     puzzles.append(SubtractionGenerator.create_puzzle(
         puzzle_id="SUB-005",
-        title="「九十九の壁（減算篇）」",
+        title="繰り下がりの極限「九と一の減算」",
         difficulty=Difficulty.LEVEL_3,
         A=1090, B=991,
         clues={'A': {2: 9}, 'B': {2: 1}},
-        summary="引かれる数の十位が「9」、引く数の末尾が「1」。差が2桁という条件がパズルを縛ります。",
+        summary="4桁－3桁＝2桁。引かれる数の十の位が「9」、引く数の末尾が「1」という2つの配置から、繰り下がりの連鎖によって唯一の解を導き出してください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -686,11 +686,11 @@ def get_curated_puzzles() -> List[Puzzle]:
     # SUB-006: 1008からの減算
     puzzles.append(SubtractionGenerator.create_puzzle(
         puzzle_id="SUB-006",
-        title="「千八からの減算」",
+        title="繰り下がりの境界「八と零の減算」",
         difficulty=Difficulty.LEVEL_3,
         A=1008, B=909,
         clues={'A': {3: 8}, 'B': {1: 0}},
-        summary="引かれる数の末尾が「8」、引く数の十位が「0」。差が2桁（99）になる唯一の組み合わせ。",
+        summary="4桁－3桁＝2桁。引かれる数の末尾が「8」、引く数の十の位が「0」という手がかりから、差が2桁に収まる厳しい境界を突いて式を完成させてください。",
         source="オリジナル生成 (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -754,7 +754,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         d=9, q=63, D=567,
         clues={'q': {1: 7}},
         radix=8,
-        summary="8進法の割り算筆算。商の一の位に現れる「7」を手がかりに、各段の部分積と引き算の整合性から全3桁・4桁の数が一意に確定します。",
+        summary="8進法の割り算筆算。商の一の位に現れる「7」を手がかりに、各段の部分積と引き算の整合性から全マスが一意に確定します。",
         source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -822,7 +822,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         d=17, q=255, D=4335,
         clues={'q': {1: 15}},
         radix=16,
-        summary="16進法の筆算割り算。商の一の位の「F」のみを手がかりに、除数11₁₆と被除数10EF₁₆が完全に一意に定まります。",
+        summary="16進法の筆算割り算。商の一の位に置かれた「F」のみを手がかりに、筆算の段数と桁数制約から除数と被除数が完全に一意に定まります。",
         source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -912,7 +912,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         operands=[7, 1],
         clues={},
         radix=2,
-        summary="3桁＋1桁＝4桁という筆算の桁数配置だけで、2進法の繰り上がり連鎖により 111₂ + 1₂ = 1000₂ が確定する究極のヒント0個問題。",
+        summary="3桁＋1桁＝4桁という筆算の桁数配置だけで、2進法の繰り上がり連鎖により全マスが一意に確定する究極のヒント0個問題。",
         source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -934,7 +934,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         A=8, B=7,
         clues={},
         radix=2,
-        summary="4桁－3桁＝1桁という筆算の輪郭のみから、8－7＝1（1000₂－111₂＝1₂）が唯一解として導かれるヒント0個の引き算。",
+        summary="4桁－3桁＝1桁という筆算の輪郭のみから、最大値・最小値の境界解析によって唯一の解が導かれるヒント0個の引き算。",
         source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -956,7 +956,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         d=3, q=7, D=21,
         clues={},
         radix=2,
-        summary="数字のヒントが全くない（すべて□）2進法の筆算割り算。3段にわたる引き算の段数と桁数の構造から、21÷3＝7（10101₂÷11₂＝111₂）が一意に確定します。",
+        summary="数字のヒントが全くない（すべて□）2進法の筆算割り算。3段にわたる引き算の段数と桁数の構造から、除数・商・被除数の全空欄が一意に確定します。",
         source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
@@ -986,7 +986,7 @@ def get_curated_puzzles() -> List[Puzzle]:
         A=4096, B=4095,
         clues={'diff': {0: 1}},
         radix=16,
-        summary="16進数で4桁－3桁＝1桁であり、差が「1」という唯一の手がかりから、4096－4095＝1（1000₁₆－FFF₁₆＝1₁₆）が一意に導かれます。",
+        summary="16進数で4桁－3桁＝1桁であり、差が「1」という唯一の手がかりから、基数16の繰り下がり境界によって全盤面が一意に導かれます。",
         source="多進法虫食い算探索エンジン (MUSHIKUI ENGINE)",
         deduction_steps=[
             DeductionStep(
