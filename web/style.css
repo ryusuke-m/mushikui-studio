@@ -385,9 +385,11 @@ pre.board-box {
   border: 1.5px solid var(--border-board);
   border-radius: 8px;
   padding: 14px;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  font-size: 0.95rem;
-  line-height: 1.45;
+  font-family: 'BIZ UDGothic', 'Noto Sans Mono CJK JP', 'Meiryo', 'MS Gothic', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-variant-east-asian: tabular-nums;
   white-space: pre;
   overflow-x: auto;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -624,7 +626,7 @@ pre.board-box.sol {
   border: 2px solid var(--border-board);
   border-radius: 12px;
   padding: 24px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'BIZ UDGothic', 'JetBrains Mono', monospace;
   box-shadow: var(--shadow-sm);
   display: inline-block;
   user-select: none;
@@ -674,7 +676,7 @@ pre.board-box.sol {
   width: 100%;
   height: 100%;
   text-align: center;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'BIZ UDGothic', 'JetBrains Mono', monospace;
   font-size: 1.15rem;
   font-weight: 700;
   border: 2px dashed #94a3b8;
@@ -821,9 +823,11 @@ pre.board-box.sol {
 }
 
 pre.ascii-art {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'BIZ UDGothic', 'Noto Sans Mono CJK JP', 'Meiryo', 'MS Gothic', 'JetBrains Mono', 'Courier New', monospace;
   font-size: 1.05rem;
-  line-height: 1.45;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-variant-east-asian: tabular-nums;
 }
 
 .logic-steps {

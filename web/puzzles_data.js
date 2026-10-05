@@ -10,14 +10,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "               □ 7 □ □ □",
+        "content": "              □ 7 □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────────",
+        "content": "      ┌────────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -31,84 +31,84 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □ □ □",
+        "content": "        □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "             □ □ □",
+        "content": "            □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             □ □ □",
+        "content": "            □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "             □ □ □ □",
+        "content": "            □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               □ □ □",
+        "content": "              □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_3",
-        "content": "                 □ □ □ □",
+        "content": "                □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_3",
-        "content": "                 □ □ □ □",
+        "content": "                □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_3",
-        "content": "                ─────────",
+        "content": "               ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                       0",
+        "content": "                      0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -117,14 +117,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "               9 7 8 0 9",
+        "content": "              9 7 8 0 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────────",
+        "content": "      ┌────────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -138,84 +138,84 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         1 1 1 6",
+        "content": "        1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "             9 6 8",
+        "content": "            9 6 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             8 6 8",
+        "content": "            8 6 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "             1 0 0 3",
+        "content": "            1 0 0 3",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               9 9 2",
+        "content": "              9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_3",
-        "content": "                 1 1 1 6",
+        "content": "                1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_3",
-        "content": "                 1 1 1 6",
+        "content": "                1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_3",
-        "content": "                ─────────",
+        "content": "               ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                       0",
+        "content": "                      0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -310,14 +310,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "             7 □ □ □",
+        "content": "            7 □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────",
+        "content": "      ┌────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -331,63 +331,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □ □",
+        "content": "        □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ───────",
+        "content": "       ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         □ □ □ □",
+        "content": "        □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           □ □ □",
+        "content": "          □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "             □ □ □ □",
+        "content": "            □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "             □ □ □ □",
+        "content": "            □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "            ─────────",
+        "content": "           ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                   0",
+        "content": "                  0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -396,14 +396,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "             7 8 0 9",
+        "content": "            7 8 0 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────",
+        "content": "      ┌────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -417,63 +417,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         8 6 8",
+        "content": "        8 6 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ───────",
+        "content": "       ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         1 0 0 3",
+        "content": "        1 0 0 3",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           9 9 2",
+        "content": "          9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "             1 1 1 6",
+        "content": "            1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "             1 1 1 6",
+        "content": "            1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "            ─────────",
+        "content": "           ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                   0",
+        "content": "                  0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -553,14 +553,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "               □ □ 7 □",
+        "content": "              □ □ 7 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -574,63 +574,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "           □ □ □",
+        "content": "          □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "               □ □ □",
+        "content": "              □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "               □ □ □",
+        "content": "              □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               □ □ □ □",
+        "content": "              □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               □ □ □ □",
+        "content": "              □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ─────────",
+        "content": "             ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -639,14 +639,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "               8 0 7 9",
+        "content": "              8 0 7 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -660,63 +660,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "           9 9 2",
+        "content": "          9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "               9 7 9",
+        "content": "              9 7 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "               8 6 8",
+        "content": "              8 6 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               1 1 1 6",
+        "content": "              1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               1 1 1 6",
+        "content": "              1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ─────────",
+        "content": "             ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -788,14 +788,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "               8 □ □ □",
+        "content": "              8 □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -809,63 +809,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "           □ □ □",
+        "content": "          □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           □ □ □ □",
+        "content": "          □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             □ □ □",
+        "content": "            □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               □ □ □ □",
+        "content": "              □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               □ □ □ □",
+        "content": "              □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ─────────",
+        "content": "             ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -874,14 +874,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "               8 8 0 9",
+        "content": "              8 8 0 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -895,63 +895,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "           9 9 2",
+        "content": "          9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           1 0 0 3",
+        "content": "          1 0 0 3",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             9 9 2",
+        "content": "            9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               1 1 1 6",
+        "content": "              1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               1 1 1 6",
+        "content": "              1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ─────────",
+        "content": "             ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1031,14 +1031,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "               □ 8 □ □",
+        "content": "              □ 8 □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1052,63 +1052,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □ □ □",
+        "content": "        □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           □ □ □ □",
+        "content": "          □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             □ □ □",
+        "content": "            □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               □ □ □ □",
+        "content": "              □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               □ □ □ □",
+        "content": "              □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ─────────",
+        "content": "             ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1117,14 +1117,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "               9 8 0 9",
+        "content": "              9 8 0 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1138,63 +1138,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         1 1 1 6",
+        "content": "        1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           1 0 0 3",
+        "content": "          1 0 0 3",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             9 9 2",
+        "content": "            9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               1 1 1 6",
+        "content": "              1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               1 1 1 6",
+        "content": "              1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ─────────",
+        "content": "             ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1266,14 +1266,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "               □ □ □ 8",
+        "content": "              □ □ □ 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1287,63 +1287,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □ □ □",
+        "content": "        □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           □ □ □ □",
+        "content": "          □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             □ □ □",
+        "content": "            □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "                 □ □ □",
+        "content": "                □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "                 □ □ □",
+        "content": "                □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "                ───────",
+        "content": "               ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1352,14 +1352,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "               9 8 0 8",
+        "content": "              9 8 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌───────────────",
+        "content": "      ┌──────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1373,63 +1373,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         1 1 1 6",
+        "content": "        1 1 1 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           1 0 0 1",
+        "content": "          1 0 0 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             9 9 2",
+        "content": "            9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "                 9 9 2",
+        "content": "                9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "                 9 9 2",
+        "content": "                9 9 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "                ───────",
+        "content": "               ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                     0",
+        "content": "                    0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1501,14 +1501,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "             8 □",
+        "content": "            8 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────",
+        "content": "      ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1522,42 +1522,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □ □",
+        "content": "        □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ───────",
+        "content": "       ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         □ □ □ □",
+        "content": "        □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "         □ □ □ □",
+        "content": "        □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "               0",
+        "content": "              0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1566,14 +1566,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "             8 9",
+        "content": "            8 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────",
+        "content": "      ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1587,42 +1587,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         8 9 6",
+        "content": "        8 9 6",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ───────",
+        "content": "       ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         1 0 0 8",
+        "content": "        1 0 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "         1 0 0 8",
+        "content": "        1 0 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "        ─────────",
+        "content": "       ─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "               0",
+        "content": "              0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1695,14 +1695,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "           □ 9",
+        "content": "          □ 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌─────────",
+        "content": "    ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1716,42 +1716,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □",
+        "content": "        □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           □ □",
+        "content": "          □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           □ □",
+        "content": "          □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "             0",
+        "content": "            0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1760,14 +1760,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "           9 9",
+        "content": "          9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌─────────",
+        "content": "    ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1781,42 +1781,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         9 9",
+        "content": "        9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           9 9",
+        "content": "          9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           9 9",
+        "content": "          9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "             0",
+        "content": "            0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1889,14 +1889,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "             □ □ □ □",
+        "content": "            □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────",
+        "content": "      ┌────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1910,63 +1910,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □ □",
+        "content": "        □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ───────",
+        "content": "       ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         □ □ □ □",
+        "content": "        □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           □ □ □",
+        "content": "          □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               □ □ □",
+        "content": "              □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               □ □ □",
+        "content": "              □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                   0",
+        "content": "                  0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -1975,14 +1975,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "             1 2 0 2",
+        "content": "            1 2 0 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────",
+        "content": "      ┌────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -1996,63 +1996,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         4 9 7",
+        "content": "        4 9 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ───────",
+        "content": "       ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         1 0 0 3",
+        "content": "        1 0 0 3",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           9 9 4",
+        "content": "          9 9 4",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               9 9 4",
+        "content": "              9 9 4",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               9 9 4",
+        "content": "              9 9 4",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                   0",
+        "content": "                  0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2124,14 +2124,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "               9 □ □",
+        "content": "              9 □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────",
+        "content": "      ┌────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -2145,63 +2145,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "           □ □ □",
+        "content": "          □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           □ □ □ □",
+        "content": "          □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             □ □ □",
+        "content": "            □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               □ □ □",
+        "content": "              □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               □ □ □",
+        "content": "              □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                   0",
+        "content": "                  0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2210,14 +2210,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "               9 9 9",
+        "content": "              9 9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "      ┌─────────────",
+        "content": "      ┌────────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -2231,63 +2231,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "           9 1 8",
+        "content": "          9 1 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "          ───────",
+        "content": "         ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           1 0 0 9",
+        "content": "          1 0 0 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "             9 1 8",
+        "content": "            9 1 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "            ───────",
+        "content": "           ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "               9 1 8",
+        "content": "              9 1 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "               9 1 8",
+        "content": "              9 1 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "              ───────",
+        "content": "             ───────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "                   0",
+        "content": "                  0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2370,49 +2370,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "     □ □ □",
+        "content": "    □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 8 □",
+        "content": "×     8 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "   □ □ □  ",
+        "content": "  □ □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2421,49 +2421,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "     1 1 2",
+        "content": "    1 1 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 8 9",
+        "content": "×     8 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "   1 0 0 8",
+        "content": "  1 0 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "   8 9 6  ",
+        "content": "  8 9 6  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   9 9 6 8",
+        "content": "  9 9 6 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2532,49 +2532,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       □ □ 2",
+        "content": "      □ □ 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "       × 9 □",
+        "content": "×       9 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ──────────",
+        "content": "───────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       □ □ □",
+        "content": "      □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     □ □ □  ",
+        "content": "    □ □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ──────────",
+        "content": "───────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □ □",
+        "content": "  □ □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2583,49 +2583,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 0 2",
+        "content": "      1 0 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "       × 9 9",
+        "content": "×       9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ──────────",
+        "content": "───────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       9 1 8",
+        "content": "      9 1 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     9 1 8  ",
+        "content": "    9 1 8  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ──────────",
+        "content": "───────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 0 0 9 8",
+        "content": "  1 0 0 9 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2689,49 +2689,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 9 1",
+        "content": "×     9 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     □ □  ",
+        "content": "    □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2740,49 +2740,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 1",
+        "content": "      1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 9 1",
+        "content": "×     9 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       1 1",
+        "content": "      1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     9 9  ",
+        "content": "    9 9  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 0 0 1",
+        "content": "  1 0 0 1",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2844,49 +2844,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       □ 2",
+        "content": "      □ 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 8 □",
+        "content": "×     8 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "     □ □ □",
+        "content": "    □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     □ □  ",
+        "content": "    □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -2895,49 +2895,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 2",
+        "content": "      1 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 8 9",
+        "content": "×     8 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "     1 0 8",
+        "content": "    1 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     9 6  ",
+        "content": "    9 6  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 0 6 8",
+        "content": "  1 0 6 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3001,49 +3001,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 2",
+        "content": "      1 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × □ □",
+        "content": "×     □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "     □ □ □",
+        "content": "    □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "   □ □ □  ",
+        "content": "  □ □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3052,49 +3052,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 2",
+        "content": "      1 2",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 9 9",
+        "content": "×     9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "     1 0 8",
+        "content": "    1 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "   1 0 8  ",
+        "content": "  1 0 8  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 1 8 8",
+        "content": "  1 1 8 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3148,28 +3148,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "operand_0",
-        "content": "       □ □ □",
+        "content": "    □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "         + 1",
+        "content": "+       1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3178,28 +3178,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "operand_0",
-        "content": "       9 9 9",
+        "content": "    9 9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "         + 1",
+        "content": "+       1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3255,28 +3255,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "operand_0",
-        "content": "       □ 0 1",
+        "content": "    □ 0 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + □ □",
+        "content": "+     □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3285,28 +3285,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "operand_0",
-        "content": "       9 0 1",
+        "content": "    9 0 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + 9 9",
+        "content": "+     9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3363,28 +3363,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "operand_0",
-        "content": "       □ □ □",
+        "content": "    □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + □ □",
+        "content": "+     □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     □ □ 9 8",
+        "content": "  □ □ 9 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3393,28 +3393,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "operand_0",
-        "content": "       9 9 9",
+        "content": "    9 9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + 9 9",
+        "content": "+     9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     1 0 9 8",
+        "content": "  1 0 9 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3479,28 +3479,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "operand_0",
-        "content": "       □ 0 □",
+        "content": "    □ 0 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + □ □",
+        "content": "+     □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     □ □ □ 8",
+        "content": "  □ □ □ 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3509,28 +3509,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "operand_0",
-        "content": "       9 0 9",
+        "content": "    9 0 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + 9 9",
+        "content": "+     9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     1 0 0 8",
+        "content": "  1 0 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3589,28 +3589,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "operand_0",
-        "content": "       □ □ 1",
+        "content": "    □ □ 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + □ □",
+        "content": "+     □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     □ □ 9 □",
+        "content": "  □ □ 9 □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3619,28 +3619,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "operand_0",
-        "content": "       9 9 1",
+        "content": "    9 9 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "       + 9 9",
+        "content": "+     9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     1 0 9 0",
+        "content": "  1 0 9 0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3699,28 +3699,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ □ □",
+        "content": "-   □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           1",
+        "content": "        1",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3729,28 +3729,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - 9 9 9",
+        "content": "-   9 9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           1",
+        "content": "        1",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3799,28 +3799,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ □ 1",
+        "content": "-   □ □ 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           □",
+        "content": "        □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3829,28 +3829,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - 9 9 1",
+        "content": "-   9 9 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           9",
+        "content": "        9",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3907,28 +3907,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ □ 8",
+        "content": "  □ □ □ 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ □ □",
+        "content": "-   □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           □",
+        "content": "        □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -3937,28 +3937,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 0 8",
+        "content": "  1 0 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - 9 9 9",
+        "content": "-   9 9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           9",
+        "content": "        9",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4015,28 +4015,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ 0 1",
+        "content": "-   □ 0 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "         □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4045,28 +4045,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - 9 0 1",
+        "content": "-   9 0 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "         9 9",
+        "content": "      9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4124,28 +4124,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ 9 □",
+        "content": "  □ □ 9 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ □ 1",
+        "content": "-   □ □ 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "         □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4154,28 +4154,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 9 0",
+        "content": "  1 0 9 0",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - 9 9 1",
+        "content": "-   9 9 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "         9 9",
+        "content": "      9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4227,28 +4227,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ □ 8",
+        "content": "  □ □ □ 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ 0 □",
+        "content": "-   □ 0 □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "         □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4257,28 +4257,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 0 8",
+        "content": "  1 0 0 8",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - 9 0 9",
+        "content": "-   9 0 9",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "         9 9",
+        "content": "      9 9",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4330,49 +4330,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × □ 7",
+        "content": "×     □ 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     □ □  ",
+        "content": "    □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4381,49 +4381,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 1",
+        "content": "      1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 7 7",
+        "content": "×     7 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       7 7",
+        "content": "      7 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     7 7  ",
+        "content": "    7 7  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 0 6 7",
+        "content": "  1 0 6 7",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4492,14 +4492,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "           □ 7",
+        "content": "          □ 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌─────────",
+        "content": "    ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -4513,42 +4513,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □",
+        "content": "        □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           □ □",
+        "content": "          □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           □ □",
+        "content": "          □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "             0",
+        "content": "            0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4557,14 +4557,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "           7 7",
+        "content": "          7 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌─────────",
+        "content": "    ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -4578,42 +4578,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         7 7",
+        "content": "        7 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           7 7",
+        "content": "          7 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           7 7",
+        "content": "          7 7",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "             0",
+        "content": "            0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4686,49 +4686,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × □ F",
+        "content": "×     □ F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     □ □  ",
+        "content": "    □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4737,49 +4737,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 1",
+        "content": "      1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × F F",
+        "content": "×     F F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       F F",
+        "content": "      F F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     F F  ",
+        "content": "    F F  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 0 E F",
+        "content": "  1 0 E F",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4848,14 +4848,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "           □ F",
+        "content": "          □ F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌─────────",
+        "content": "    ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -4869,42 +4869,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □",
+        "content": "        □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           □ □",
+        "content": "          □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           □ □",
+        "content": "          □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "             0",
+        "content": "            0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -4913,14 +4913,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "           F F",
+        "content": "          F F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌─────────",
+        "content": "    ┌────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -4934,42 +4934,42 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         F F",
+        "content": "        F F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "           F F",
+        "content": "          F F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           F F",
+        "content": "          F F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "             0",
+        "content": "            0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5042,49 +5042,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × □ B",
+        "content": "×     □ B",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     □ □  ",
+        "content": "    □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5093,49 +5093,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 1",
+        "content": "      1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × B B",
+        "content": "×     B B",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       B B",
+        "content": "      B B",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     B B  ",
+        "content": "    B B  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 0 A B",
+        "content": "  1 0 A B",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5196,49 +5196,49 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "multiplicand",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × □ □",
+        "content": "×     □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       □ □",
+        "content": "      □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     □ □  ",
+        "content": "    □ □  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5247,49 +5247,49 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "multiplicand",
-        "content": "       1 1",
+        "content": "      1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "multiplier",
-        "content": "     × 1 1",
+        "content": "×     1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_mul",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "prod_0",
-        "content": "       1 1",
+        "content": "      1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "     1 1  ",
+        "content": "    1 1  ",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_tot",
-        "content": "  ────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "total",
-        "content": "   1 0 0 1",
+        "content": "  1 0 0 1",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5346,28 +5346,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "operand_0",
-        "content": "       □ □ □",
+        "content": "    □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "         + □",
+        "content": "+       □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5376,28 +5376,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "operand_0",
-        "content": "       1 1 1",
+        "content": "    1 1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "operand_1",
-        "content": "         + 1",
+        "content": "+       1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_add",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sum",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5449,28 +5449,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ □ □",
+        "content": "-   □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           □",
+        "content": "        □",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5479,28 +5479,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - 1 1 1",
+        "content": "-   1 1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           1",
+        "content": "        1",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5545,14 +5545,14 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "quotient",
-        "content": "           □ □ □",
+        "content": "          □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌───────────",
+        "content": "    ┌──────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -5566,63 +5566,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         □ □",
+        "content": "        □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         □ □ □",
+        "content": "        □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           □ □",
+        "content": "          □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "             □ □",
+        "content": "            □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "             □ □",
+        "content": "            □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "            ─────",
+        "content": "           ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "               0",
+        "content": "              0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5631,14 +5631,14 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "quotient",
-        "content": "           1 1 1",
+        "content": "          1 1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_top",
-        "content": "    ┌───────────",
+        "content": "    ┌──────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
@@ -5652,63 +5652,63 @@ const PUZZLES_DATA = [
       },
       {
         "label": "prod_0",
-        "content": "         1 1",
+        "content": "        1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_0",
-        "content": "        ─────",
+        "content": "       ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_1",
-        "content": "         1 0 0",
+        "content": "        1 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_1",
-        "content": "           1 1",
+        "content": "          1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_1",
-        "content": "          ─────",
+        "content": "         ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "sub_2",
-        "content": "             1 1",
+        "content": "            1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "prod_2",
-        "content": "             1 1",
+        "content": "            1 1",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_2",
-        "content": "            ─────",
+        "content": "           ─────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "remainder",
-        "content": "               0",
+        "content": "              0",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5784,28 +5784,28 @@ const PUZZLES_DATA = [
     "problem_rows": [
       {
         "label": "minuend",
-        "content": "     □ □ □ □",
+        "content": "  □ □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - □ □ □",
+        "content": "-   □ □ □",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           1",
+        "content": "        1",
         "is_line": false,
         "indent": 0,
         "row_type": "result"
@@ -5814,28 +5814,28 @@ const PUZZLES_DATA = [
     "solution_rows": [
       {
         "label": "minuend",
-        "content": "     1 0 0 0",
+        "content": "  1 0 0 0",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "subtrahend",
-        "content": "     - F F F",
+        "content": "-   F F F",
         "is_line": false,
         "indent": 0,
         "row_type": "digits"
       },
       {
         "label": "line_sub",
-        "content": "  ──────────",
+        "content": "─────────",
         "is_line": true,
         "indent": 0,
         "row_type": "separator"
       },
       {
         "label": "difference",
-        "content": "           1",
+        "content": "        1",
         "is_line": false,
         "indent": 0,
         "row_type": "result"

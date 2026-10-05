@@ -120,7 +120,7 @@ class DivisionGenerator:
         q_s = int_to_base_str(q, radix)
         D_s = int_to_base_str(D, radix)
 
-        col_offset = len(d_s) * 2 + 3
+        col_offset = len(d_s) * 2 + 2
         total_cols = col_offset + len(D_s) * 2
 
         rows = []
@@ -139,7 +139,7 @@ class DivisionGenerator:
         rows.append(PuzzleRow(label="quotient", content=''.join(q_line).rstrip()))
 
         # 2. Bracket bar
-        sep_top = ' ' * (col_offset - 3) + '┌' + '─' * (len(D_s) * 2 + 1)
+        sep_top = ' ' * (col_offset - 2) + '┌' + '─' * (len(D_s) * 2)
         rows.append(PuzzleRow(label="line_top", content=sep_top, is_line=True, row_type="separator"))
 
         # 3. Divisor & Dividend

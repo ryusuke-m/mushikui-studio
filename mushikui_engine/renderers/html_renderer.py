@@ -103,6 +103,9 @@ class HTMLRenderer:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} 〜孤独の7から始まる極限覆面算の世界〜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {{
       --primary: #1e3a8a;
@@ -298,9 +301,11 @@ class HTMLRenderer:
       border: 1.5px solid var(--board-border);
       border-radius: 8px;
       padding: 16px;
-      font-family: 'Courier New', Courier, 'Cascadia Code', monospace;
+      font-family: 'BIZ UDGothic', 'Noto Sans Mono CJK JP', 'Meiryo', 'MS Gothic', 'Courier New', Courier, monospace;
       font-size: 1.05rem;
-      line-height: 1.45;
+      line-height: 1.5;
+      letter-spacing: 0;
+      font-variant-east-asian: tabular-nums;
       overflow-x: auto;
       white-space: pre;
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);

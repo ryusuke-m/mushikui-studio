@@ -67,8 +67,7 @@ class AdditionGenerator:
     ) -> List[PuzzleRow]:
         op_strs = [int_to_base_str(x, radix) for x in operands]
         sum_s = int_to_base_str(sum_val, radix)
-        max_len = max(max(len(s) for s in op_strs) + 2, len(sum_s))
-        width = max_len * 2 + 2
+        max_digits = max(max(len(s) for s in op_strs), len(sum_s))
 
         rows = []
         for i, s in enumerate(op_strs):
@@ -78,16 +77,16 @@ class AdditionGenerator:
             for j, c in enumerate(s):
                 ch = c if (is_solution or (key in clues and clues[key].get(j) is not None)) else '□'
                 part.append(ch)
-            row_str = prefix + ' '.join(part)
-            rows.append(PuzzleRow(label=f"operand_{i}", content=' ' * (width - len(row_str)) + row_str))
+            indent = (max_digits - len(s)) * 2
+            rows.append(PuzzleRow(label=f"operand_{i}", content=prefix + ' ' * indent + ' '.join(part)))
 
-        rows.append(PuzzleRow(label="line_add", content=' ' * (width - max_len * 2) + '─' * (max_len * 2), is_line=True, row_type="separator"))
+        rows.append(PuzzleRow(label="line_add", content='─' * (max_digits * 2 + 1), is_line=True, row_type="separator"))
 
         sum_part = []
         for j, c in enumerate(sum_s):
             ch = c if (is_solution or ('sum' in clues and clues['sum'].get(j) is not None)) else '□'
             sum_part.append(ch)
-        sum_str = ' '.join(sum_part)
-        rows.append(PuzzleRow(label="sum", content=' ' * (width - len(sum_str)) + sum_str, row_type="result"))
+        sum_indent = (max_digits - len(sum_s)) * 2
+        rows.append(PuzzleRow(label="sum", content='  ' + ' ' * sum_indent + ' '.join(sum_part), row_type="result"))
 
         return rows

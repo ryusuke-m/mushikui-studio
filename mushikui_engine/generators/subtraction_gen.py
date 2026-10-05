@@ -69,8 +69,7 @@ class SubtractionGenerator:
         A_s = int_to_base_str(A, radix)
         B_s = int_to_base_str(B, radix)
         diff_s = int_to_base_str(diff, radix)
-        max_len = max(len(A_s), len(B_s) + 2, len(diff_s))
-        width = max_len * 2 + 2
+        max_digits = max(len(A_s), len(B_s), len(diff_s))
 
         rows = []
 
@@ -79,25 +78,25 @@ class SubtractionGenerator:
         for j, c in enumerate(A_s):
             ch = c if (is_solution or ('A' in clues and clues['A'].get(j) is not None)) else '□'
             a_part.append(ch)
-        a_str = ' '.join(a_part)
-        rows.append(PuzzleRow(label="minuend", content=' ' * (width - len(a_str)) + a_str))
+        a_indent = (max_digits - len(A_s)) * 2
+        rows.append(PuzzleRow(label="minuend", content='  ' + ' ' * a_indent + ' '.join(a_part)))
 
         # B
         b_part = []
         for j, c in enumerate(B_s):
             ch = c if (is_solution or ('B' in clues and clues['B'].get(j) is not None)) else '□'
             b_part.append(ch)
-        b_str = '- ' + ' '.join(b_part)
-        rows.append(PuzzleRow(label="subtrahend", content=' ' * (width - len(b_str)) + b_str))
+        b_indent = (max_digits - len(B_s)) * 2
+        rows.append(PuzzleRow(label="subtrahend", content='- ' + ' ' * b_indent + ' '.join(b_part)))
 
-        rows.append(PuzzleRow(label="line_sub", content=' ' * (width - max_len * 2) + '─' * (max_len * 2), is_line=True, row_type="separator"))
+        rows.append(PuzzleRow(label="line_sub", content='─' * (max_digits * 2 + 1), is_line=True, row_type="separator"))
 
         # Diff
         d_part = []
         for j, c in enumerate(diff_s):
             ch = c if (is_solution or ('diff' in clues and clues['diff'].get(j) is not None)) else '□'
             d_part.append(ch)
-        d_str = ' '.join(d_part)
-        rows.append(PuzzleRow(label="difference", content=' ' * (width - len(d_str)) + d_str, row_type="result"))
+        d_indent = (max_digits - len(diff_s)) * 2
+        rows.append(PuzzleRow(label="difference", content='  ' + ' ' * d_indent + ' '.join(d_part), row_type="result"))
 
         return rows

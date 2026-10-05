@@ -75,11 +75,11 @@ class MultiplicationGenerator:
         B_s = int_to_base_str(B, radix)
         tot_s = int_to_base_str(tot, radix)
 
-        max_len = max(len(A_s), len(B_s) + 2, len(tot_s))
+        max_digits = max(len(A_s), len(B_s), len(tot_s))
         for i, p in enumerate(prods):
-            max_len = max(max_len, len(int_to_base_str(p, radix)) + i)
+            p_s = int_to_base_str(p, radix)
+            max_digits = max(max_digits, len(p_s) + i)
 
-        width = max_len * 2 + 2
         rows = []
 
         # A
@@ -87,19 +87,19 @@ class MultiplicationGenerator:
         for ai, ac in enumerate(A_s):
             ch = ac if (is_solution or ('A' in clues and clues['A'].get(ai) is not None)) else '□'
             a_part.append(ch)
-        a_str = ' '.join(a_part)
-        rows.append(PuzzleRow(label="multiplicand", content=' ' * (width - len(a_str)) + a_str))
+        a_indent = (max_digits - len(A_s)) * 2
+        rows.append(PuzzleRow(label="multiplicand", content='  ' + ' ' * a_indent + ' '.join(a_part)))
 
         # B with ×
         b_part = []
         for bi, bc in enumerate(B_s):
             ch = bc if (is_solution or ('B' in clues and clues['B'].get(bi) is not None)) else '□'
             b_part.append(ch)
-        b_str = '× ' + ' '.join(b_part)
-        rows.append(PuzzleRow(label="multiplier", content=' ' * (width - len(b_str)) + b_str))
+        b_indent = (max_digits - len(B_s)) * 2
+        rows.append(PuzzleRow(label="multiplier", content='× ' + ' ' * b_indent + ' '.join(b_part)))
 
         # line
-        rows.append(PuzzleRow(label="line_mul", content=' ' * (width - max_len * 2) + '─' * (max_len * 2), is_line=True, row_type="separator"))
+        rows.append(PuzzleRow(label="line_mul", content='─' * (max_digits * 2 + 1), is_line=True, row_type="separator"))
 
         # Partial products
         for i, p in enumerate(prods):
@@ -109,19 +109,20 @@ class MultiplicationGenerator:
             for pi, pc in enumerate(p_s):
                 ch = pc if (is_solution or (key in clues and clues[key].get(pi) is not None)) else '□'
                 p_part.append(ch)
-            p_str = ' '.join(p_part)
-            shift = i * 2
-            rows.append(PuzzleRow(label=f"prod_{i}", content=' ' * (width - len(p_str) - shift) + p_str + ' ' * shift))
+            p_indent = (max_digits - len(p_s) - i) * 2
+            p_shift = i * 2
+            p_line = '  ' + ' ' * p_indent + ' '.join(p_part) + (' ' * p_shift if p_shift else '')
+            rows.append(PuzzleRow(label=f"prod_{i}", content=p_line))
 
         # line
-        rows.append(PuzzleRow(label="line_tot", content=' ' * (width - max_len * 2) + '─' * (max_len * 2), is_line=True, row_type="separator"))
+        rows.append(PuzzleRow(label="line_tot", content='─' * (max_digits * 2 + 1), is_line=True, row_type="separator"))
 
         # Total
         t_part = []
         for ti, tc in enumerate(tot_s):
             ch = tc if (is_solution or ('tot' in clues and clues['tot'].get(ti) is not None)) else '□'
             t_part.append(ch)
-        t_str = ' '.join(t_part)
-        rows.append(PuzzleRow(label="total", content=' ' * (width - len(t_str)) + t_str, row_type="result"))
+        t_indent = (max_digits - len(tot_s)) * 2
+        rows.append(PuzzleRow(label="total", content='  ' + ' ' * t_indent + ' '.join(t_part), row_type="result"))
 
         return rows
