@@ -260,6 +260,7 @@ OK
 ├── mushikui_cli.py            # 統合コマンドラインツール
 ├── PROBLEM_BOOK.md            # 完全問題集 (Markdown 版・36問)
 ├── PROBLEM_BOOK.html          # 完全問題集 (単一 HTML 版・36問)
+├── LICENSE                    # MIT ライセンス条文
 └── README.md                  # プロジェクト総合解説書（本ファイル）
 ```
 
