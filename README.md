@@ -218,18 +218,6 @@ OK
 
 ---
 
-## 🌐 GitHub Pages への公開 & ホームページ連携
-
-本プロジェクトは GitHub Pages への自動デプロイが設定済みです。  
-詳しい手順については [**デプロイ・公開手順書 (DEPLOYMENT_GUIDE.md)**](DEPLOYMENT_GUIDE.md) をご覧ください。
-
-1. GitHub に新規リポジトリを作成して push
-2. Settings > Pages で Source を「GitHub Actions」に設定
-3. `https://<ユーザー名>.github.io/<リポジトリ名>/` にて即座に公開！
-4. ご自身のホームページ（Hugo Blox 等）からリンクまたは `iframe` で手軽に埋め込み可能。
-
----
-
 ## 📁 ディレクトリ構成
 
 ```text
@@ -268,10 +256,10 @@ OK
 │   ├── test_lonely7.py        # 『孤独の7』の完全復元・一意性専用テスト
 │   ├── test_uniqueness.py     # カタログ全問の一意性検証テスト
 │   └── test_generators.py     # 生成器・レイアウト構築テスト
+├── requirements.txt          # Python 依存パッケージ定義
 ├── mushikui_cli.py            # 統合コマンドラインツール
 ├── PROBLEM_BOOK.md            # 完全問題集 (Markdown 版・36問)
 ├── PROBLEM_BOOK.html          # 完全問題集 (単一 HTML 版・36問)
-├── DEPLOYMENT_GUIDE.md        # GitHub Pages デプロイ & HP連携手順書
 └── README.md                  # プロジェクト総合解説書（本ファイル）
 ```
 
