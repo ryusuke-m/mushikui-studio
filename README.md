@@ -1,6 +1,7 @@
 # 🧮 極小ヒント虫食い算スタジオ (Mushikui Studio)
 
-[![Deploy to GitHub Pages](https://github.com/actions/workflows/deploy.yml/badge.svg)](https://github.com)
+[![Deploy to GitHub Pages](https://github.com/ryusuke-m/mushikui-studio/actions/workflows/deploy.yml/badge.svg)](https://github.com/ryusuke-m/mushikui-studio/actions/workflows/deploy.yml)
+[![Live Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue.svg)](https://ryusuke-m.github.io/mushikui-studio/)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 ![Z3 SMT Solver](https://img.shields.io/badge/solver-Z3%20SMT%205.1-orange.svg)
 ![Puzzles](https://img.shields.io/badge/curated%20puzzles-36%20unique-green.svg)

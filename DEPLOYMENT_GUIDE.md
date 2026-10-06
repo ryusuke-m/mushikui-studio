@@ -82,10 +82,10 @@ push が完了したら、GitHub 上のリポジトリページで GitHub Pages 
 
 デプロイが完了すると、以下の URL で全世界にサイトが公開されます：
 
-$$\text{https://<あなたのユーザー名>.github.io/<リポジトリ名>/}$$
+$$\text{https://ryusuke-m.github.io/mushikui-studio/}$$
 
-- **Web アプリ本体**: `https://<あなたのユーザー名>.github.io/mushikui-studio/`
-- **書籍版 HTML（全36問単一ページ）**: `https://<あなたのユーザー名>.github.io/mushikui-studio/PROBLEM_BOOK.html`
+- **Web アプリ本体**: `https://ryusuke-m.github.io/mushikui-studio/`
+- **書籍版 HTML（全36問単一ページ）**: `https://ryusuke-m.github.io/mushikui-studio/PROBLEM_BOOK.html`
 
 スマートフォンや PC のブラウザからアクセスし、インタラクティブ挑戦や印刷用ワークシート機能が正常に動作することをご確認ください。
 
@@ -104,7 +104,7 @@ Hugo Blox のリポジトリ内の `config/_default/menus.yaml` に以下を追�
 ```yaml
 main:
   - name: 虫食い算スタジオ
-    url: https://<あなたのユーザー名>.github.io/mushikui-studio/
+    url: https://ryusuke-m.github.io/mushikui-studio/
     weight: 60
 ```
 
@@ -133,11 +133,11 @@ links:
   - icon: globe
     icon_pack: fas
     name: Live Demo
-    url: https://<あなたのユーザー名>.github.io/mushikui-studio/
+    url: https://ryusuke-m.github.io/mushikui-studio/
   - icon: github
     icon_pack: fab
     name: Source Code
-    url: https://github.com/<あなたのユーザー名>/mushikui-studio
+    url: https://github.com/ryusuke-m/mushikui-studio
 ---
 
 1922年に発表された名作『孤独の7』をはじめ、たった1〜2個のヒントから筆算の構造だけで全ての数字が一意に定まる珠玉の覆面算・虫食い算を体系的に作成・検証しました。
